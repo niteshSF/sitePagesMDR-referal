@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../stylesheetFromsitePagesmdr.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+
+    <title>Samskrthi Foundation - Manuscripts Digital Repositories</title>
+    <style>
+      .bg-home {
+        background-image: url("assets/bg-front-new.png");
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      footer {
+        background-color: rgb(0, 119, 255);
+        width: 90%;
+        /*Opacity start*/
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        filter: alpha(opacity=80);
+        -moz-opacity: 0.8;
+        -khtml-opacity: 0.8;
+        opacity: 01;
+        /*Opacity end*/
+      }
+    </style>
+  </head>
+
+  <script src="construct_url.js"></script>
+
+  <body class="bg-home w-screen h-screen overflow-hidden relative">
+    <!-- Top Logos (Responsive) -->
+    <div
+      class="absolute top-4 left-4 flex justify-between items-center w-[calc(100%-1rem)] px-4 md:top-5 md:left-2"
+    >
+      <a href="https://dst.gov.in/" target="_blank" rel="noopener noreferrer">
+        <img
+          src="assets/logo1.png"
+          alt="Logo 1"
+          class="w-[90px] md:w-[210px]"
+        />
+      </a>
+      <img src="assets/logo2.png" alt="Logo 2" class="w-[40px] md:w-[70px]" />
+      <a
+        href="https://samskritifoundation.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="assets/logo3.png"
+          alt="Logo 3"
+          class="w-[70px] md:w-[150px]"
+        />
+      </a>
+    </div>
+
+    <!-- Center Text Column -->
+    <div
+      class="absolute top-72 right-4 md:right-64 flex flex-col items-end gap-1"
+    >
+      <img
+        src="assets/front-text-1.png"
+        alt="Text 1"
+        class="w-[75vw] "
+      />
+      <img
+        src="assets/front-text-2.png"
+        alt="Text 2"
+        class="w-[60vw] "
+      />
+      <img
+        src="assets/front-text-3.png"
+        alt="Text 3"
+        class="w-[55vw]"
+      />
+      <img
+        src="assets/front-text-4.png"
+        alt="Text 4"
+        class="w-[40vw]"
+      />
+    </div>
+
+    <!-- Left Bottom Image -->
+    <img
+      src="assets/front-left-bottom.png"
+      alt="Left Bottom Image"
+      class="absolute left-0 -bottom-20 md:-bottom-72 w-[50vw]"
+    />
+
+    <!-- Enter Button -->
+    <div class="absolute right-8 bottom-6 md:bottom-14 md:right-64">
+      <img
+        src="assets/enter-front.png"
+        alt="Enter"
+        class="cursor-pointer w-[120px] md:w-[210px]"
+        onclick="window.location.href = constructURL('dashboard')"
+      />
+    </div>
+
+    <script src="../renderDashboard.js"></script>   
+    <script src="../dashboard.js"></script>
+    <script>
+      const dashboardArgs = [
+                             {"ScienceTechnology":"/app/sciencetechnology"},
+                             {"Astronomy":"/app/astronomy"},
+                             {"Botany":"/app/botany"},
+                             {"Chemistry":"/app/chemistry"},
+                             {"EarthSciences":"/app/earthsciences"},
+                             {"Ecology":"/app/ecology"},
+                             {"Physics":"/app/physics"},
+                            ]
+      var dashboards = []
+      dashboardArgs.forEach(element => {
+        Object.entries(element).forEach(([jsonKey, prefix]) => {
+          // console.log('k:', jsonKey, 'v:', prefix);
+          dashboards.push(dashboardCounts(jsonKey, prefix));
+        });
+      });
+      Promise.all(dashboards)
+        .then(values => {
+          totals = totalthem(values);
+          console.log("totals:", totals);
+          render(totals);
+        })
+        .catch(error => {
+          console.error("Error in one of the promises:", error);
+        });
+    </script>
+
+    <script src="../serverUrl.js"></script>
+    <script src="../renderDashboard.js"></script>
+    <script>
+      prefix = "/app/sciencetechnology";
+      jsonKey = "ScienceTechnology";
+      renderDashboard(prefix, jsonKey);
+    </script>
+  </body>
+</html>
+
+<!-- final 1st page with dashboard -->

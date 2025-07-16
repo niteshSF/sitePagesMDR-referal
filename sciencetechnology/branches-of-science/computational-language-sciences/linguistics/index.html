@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linguistics</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fenix&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      .bg-full {
+        background-image: url("assets/background.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        object-fit: cover;
+      }
+
+      .fenix-regular {
+        font-family: "Fenix", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .custom-shadow {
+        @apply shadow-black;
+        box-shadow: 0px 0px 4px 4px black;
+      }
+
+      .hover-pop {
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .hover-pop:hover {
+        transform: scale(1.1);
+      }
+    </style>
+
+    <!-- Load server URL logic -->
+    <script src="../../../../serverUrl.js"></script>
+
+    <script>
+      // Load linguistics counts dynamically using serverUrl()
+      async function loadLinguisticsCounts() {
+        try {
+          const response = await fetch(serverUrl() + "/sub/linguistics?app=sciencetechnology");
+          const data = await response.json();
+          const linguistics = data.Linguistics;
+
+          // if no data was their, then it show "-" this at that particular place 
+          document.getElementById("linguisticsManuscripts").textContent = linguistics.Manuscripts ?? "-";
+          document.getElementById("linguisticsBooks").textContent = linguistics.Books ?? "-";
+          document.getElementById("linguisticsArticles").textContent = linguistics.Articles ?? "-";
+        } catch (error) {
+          console.error("Error fetching linguistics data:", error);
+        }
+      }
+
+      window.onload = loadLinguisticsCounts;
+    </script>
+  </head>
+
+  <body class="bg-full h-screen w-screen overflow-hidden m-0 p-0">
+    <!-- Navigation Bar -->
+    <nav class="flex justify-end p-2 pr-10 text-[#646464] bg-[#A6C4FF] gap-5 text-md md:text-1xl">
+      <div class="flex gap-0 cursor-pointer items-center"
+        onclick="window.location.href = document.URL.split('/').slice(0, -3).join('/')">
+        <i data-lucide="house" class="text-white w-10 h-6"></i>
+        <p>Home</p>
+      </div>
+
+      <!-- Changed from localhost to Netcup server -->
+      <div class="flex gap-0 cursor-pointer items-center"
+        onclick="window.location.href = serverUrl() + '/sciencetechnology'"
+        title="hint: try login with user - guest@mailinator.com and password - guest">
+        <i data-lucide="arrow-big-left-dash" class="text-white w-10 h-7"></i>
+        <p>Login (Manuscripts Digital Repository)</p>
+      </div>
+
+      <div class="flex gap-0 cursor-pointer items-center" onclick="history.back()">
+        <i data-lucide="arrow-big-left-dash" class="text-white w-10 h-7"></i>
+        <p>Back</p>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="relative flex flex-col h-[calc(100vh-44px)] px-4 py-2 max-w-screen-2xl mx-auto">
+      <!-- Title -->
+      <div class="flex flex-col items-center mt-10">
+        <img src="assets/header.png" alt="Combined Title"
+          class="w-[220px] md:w-[280px] lg:w-[320px] xl:w-[24vw]" />
+      </div>
+
+      <!-- Paragraph -->
+      <div class="flex flex-1 items-center justify-end px-4 sm:px-8 md:pr-16 lg:pr-28 xl:pr-1 -mt-16 md:-mt-24 lg:-mt-32 xl:-mt-40">
+        <div
+          class="text-black font-semibold text-justify w-full max-w-[600px] sm:max-w-[640px] md:max-w-[700px] lg:max-w-[760px] xl:max-w-[800px]">
+          <p class="text-base md:text-lg lg:text-2xl leading-relaxed">
+
+Linguistics in ancient Bharat evolved into a profound intellectual tradition, with scholars analyzing language as a fundamental element of cognition, culture, and spirituality. The roots of Bhāratiya linguistics lie in the Vedic period, where precise pronunciation was essential for transmitting sacred texts. Pioneers like Yāska, with his Nirukta on semantics, and Panini, whose Aşțādhyāyī remains a landmark in grammatical theory, laid the foundation for linguistic study. Patañjali's Mahābhāṣya explored deeper linguistic-philosophical connections, while the Prātiśākhyas and schools like Mimāmsā and Nyāya contributed to phonetics and semantic analysis. These contributions continue to influence modern linguistic thought.
+
+          </p>
+        </div>
+      </div>
+
+      <!-- Resource Buttons -->
+      <div class="absolute bottom-5 right-4 sm:right-10 md:right-16 lg:right-24 xl:right-1">
+        <div class="flex gap-8 flex-wrap justify-center md:justify-end text-white text-center">
+          <!-- Manuscripts -->
+          <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+            onclick="window.location.href = window.location.pathname.replace('index.html', 'manuscripts/index.html')">
+            <img src="assets/manuscripts.png" alt="manuscripts"
+              class="h-[100px] md:h-[145px] w-auto max-w-[180px]" />
+            <span id="linguisticsManuscripts"
+              class="-mt-1 bg-purple-400 bg-opacity-40 rounded-lg px-2 h-9 shadow-md w-28 text-center flex items-center justify-center mx-auto font-semibold text-lg">
+              ...
+            </span>
+          </div>
+
+          <!-- Books -->
+          <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+           onclick="window.location.href = window.location.pathname.replace('index.html', 'books/index.html')"> 
+            <img src="assets/books.png" alt="books"
+              class="h-[100px] md:h-[145px] w-auto max-w-[130px]" />
+            <span id="linguisticsBooks"
+              class="-mt-1 bg-purple-400 bg-opacity-40 rounded-lg px-2 h-9 shadow-md w-28 text-center flex items-center justify-center mx-auto font-semibold text-lg">
+              ...
+            </span>
+          </div>
+
+          <!-- Articles -->
+          <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+            onclick="window.location.href = window.location.pathname.replace('index.html', 'articles/index.html')">
+            <img src="assets/articles.png" alt="articles"
+              class="h-[100px] md:h-[145px] w-auto max-w-[130px]" />
+            <span id="linguisticsArticles"
+              class="-mt-1 bg-purple-400 bg-opacity-40 rounded-lg px-2 h-9 shadow-md w-28 text-center flex items-center justify-center mx-auto font-semibold text-lg">
+              ...
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Init Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script>
+      updateDivOnclickWithRegex();
+    </script>
+  </body>
+</html>

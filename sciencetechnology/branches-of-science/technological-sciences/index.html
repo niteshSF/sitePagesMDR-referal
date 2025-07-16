@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      .bg-full {
+        background-image: url("../assets/bg-new.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .circle-container {
+        position: relative;
+        width: 540px;
+        height: 530px;
+      }
+
+      .circle-image {
+        position: absolute;
+        width: 260px;
+        height: 250px;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s ease;
+      }
+
+      .circle-image:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+        cursor: pointer;
+      }
+
+      .bg-circle {
+        width: 650px;
+        height: 650px;
+      }
+
+      .bg {
+        width: 340px;
+      }
+    </style>
+  </head>
+  <body class="bg-full min-h-screen min-w-screen m-0 p-0">
+    <!-- Navigation -->
+    <nav
+      class="flex justify-end p-5 text-xl pr-16 text-white bg-[#7EFEFE] gap-10"
+    >
+      <div
+        class="flex gap-1 cursor-pointer items-center"
+        onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')"
+      >
+        <i data-lucide="home" class="text-[#41476A]"></i>
+        <p class="text-[#674C79]"><strong>Home</strong></p>
+      </div>
+      <div
+        class="flex gap-1 cursor-pointer items-center"
+        onclick="history.back()"
+      >
+        <i data-lucide="arrow-left-circle" class="text-[#41476A]"></i>
+        <p class="text-[#674C79]"><strong>Back</strong></p>
+      </div>
+    </nav>
+
+    <!-- Circles -->
+    <div
+      class="flex h-[calc(100vh-64px)] w-full justify-center items-center relative mt-3"
+    >
+      <img src="assets/striped_circle_six.png" class="absolute bg-circle" />
+      <img src="assets/center_circle.png" class="absolute bg" />
+
+      <!-- inside the center circle text -->
+         <div class="absolute w-[340px] h-[340px] flex items-center justify-center text-[#4B2E1D] font-bold text-[1.4vw] text-center pointer-events-none">
+           Technological <br> Sciences
+         </div>
+
+      <div class="circle-container">
+        
+          <img
+          src="assets/agriculture.png"
+          class="circle-image"
+          id="circleAgriculture"
+          title="fetching data"
+          onclick="window.location.href = constructURL('agriculture')"
+          onmouseover="hoverAgriculture()"
+          />
+          <img
+          src="assets/water_management.png"
+          class="circle-image"
+          id="circleWaterManagement"
+          title="fetching data"
+          onclick="window.location.href = constructURL('water-management')"
+          onmouseover="hoverWaterManagement()"
+          />
+          <img
+          src="assets/metallurgy.png"
+          class="circle-image"
+          id="circleMetallurgy"
+          title="fetching data"
+          onclick="window.location.href = constructURL('metallurgy')"
+          onmouseover="hoverMetallurgy()"
+          />
+          <img
+            src="assets/civil_engineering_architecture.png"
+            class="circle-image"
+            id="circleCivilEngineeringArchitecture"
+            title="fetching data"
+            onclick="window.location.href = constructURL('civil-engineering-architecture')"
+            onmouseover="hoverCivilEngineeringArchitecture()"
+          />
+          <img
+            src="assets/mechanical_engineering.png"
+            class="circle-image"
+            id="circleMechanicalEngineering"
+            title="fetching data"
+            onclick="window.location.href = constructURL('mechanical-engineering')"
+            onmouseover="hoverMechanicalEngineering()"
+          />
+          <img
+          src="assets/textile_engineering.png"
+          class="circle-image"
+          id="circleTextileEngineering"
+          title="fetching data"
+          onclick="window.location.href = constructURL('textile-engineering')"
+          onmouseover="hoverTextileEngineering()"
+          />
+          <img
+          src="assets/gemmology.png"
+          class="circle-image"
+          id="circleGemmology"
+          title="fetching data"
+          onclick="window.location.href = constructURL('gemmology')"
+          onmouseover="hoverGemmology()"
+          />
+      </div>
+    </div>
+
+    <!-- Positioning Script -->
+    <script>
+      function positionCircles() {
+        const container = document.querySelector(".circle-container");
+        const radius = container.offsetWidth / 2 - 10; // adjusted for larger images
+        const centerX = container.offsetWidth / 2;
+        const centerY = container.offsetHeight / 2;
+
+        const images = document.querySelectorAll(".circle-image");
+        const totalImages = images.length;
+        const angleStep = 360 / totalImages;
+
+        images.forEach((image, index) => {
+          const angle = angleStep * index * (Math.PI / 180);
+          const x = centerX + radius * Math.cos(angle);
+          const y = centerY + radius * Math.sin(angle);
+          image.style.left = `${x}px`;
+          image.style.top = `${y}px`;
+        });
+      }
+
+      window.onload = positionCircles;
+      window.onresize = positionCircles;
+    </script>
+
+    <!-- Icon & Dashboard Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="../../../serverUrl.js"></script>
+    <script>
+      function constructURL(subfolder) {
+        const basePath =
+          document.location.protocol +
+          "//" +
+          document.location.host +
+          document.location.pathname;
+        return basePath.replace(/\/[^\/]*$/, "/") + subfolder + "/index.html";
+      }
+
+      function dashboard(jsonKey, prefix, circle) {
+        dashboardCounts(jsonKey, prefix)
+          .then((value) => {
+            const elemen = document.getElementById(circle);
+            let s = JSON.stringify(value).slice(1, -1);
+            elemen.setAttribute("title", s.replace(/"/g, " "));
+          })
+          .catch((error) => {
+            console.error("Error in one of the promises:", error);
+          });
+      }
+
+      function dashboardCounts(jsonKey, prefix) {
+        return fetch(serverUrlPort() + prefix)
+          .then((res) => res.json())
+          .then((json) => json[jsonKey])
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            return null;
+          });
+      }
+
+      function hoverAgriculture() {
+        if (
+          document.getElementById("circleAgriculture").title === "fetching data"
+        )
+          dashboard("Agriculture", "/sub/agriculture", "circleAgriculture");
+      }
+
+      function hoverWaterManagement() {
+        if (document.getElementById("circleWaterManagement").title === "fetching data")
+          dashboard("WaterManagement", "/sub/waterManagement", "circleWaterManagement");
+      }
+
+      function hoverMetallurgy() {
+        if (
+          document.getElementById("circleMetallurgy").title === "fetching data"
+        )
+          dashboard("Metallurgy", "/sub/metallurgy", "circleMetallurgy");
+      }
+
+      function hoverCivilEngineeringArchitecture() {
+        if (
+          document.getElementById("circleCivilEngineeringArchitecture").title ===
+          "fetching data"
+        )
+          dashboard(
+            "CivilEngineeringArchitecture",
+            "/sub/civilEngineeringArchitecture",
+            "circleCivilEngineeringArchitecture"
+          );
+      }
+
+      function hoverMechanicalEngineering() {
+        if (
+          document.getElementById("circleMechanicalEngineering").title === "fetching data"
+        )
+          dashboard("MechanicalEngineering", "/sub/mechanicalEngineering", "circleMechanicalEngineering");
+      }
+
+      function hoverTextileEngineering() {
+        if (
+          document.getElementById("circleTextileEngineering").title ===
+          "fetching data"
+        )
+          dashboard(
+            "TextileEngineering",
+            "/sub/textileEngineering",
+            "circleTextileEngineering"
+          );
+      }
+
+      function hoverGemmology() {
+        if (
+          document.getElementById("circleGemmology").title === "fetching data"
+        )
+          dashboard("Gemmology", "/sub/gemmology", "circleGemmology");
+      }
+
+    </script>
+  </body>
+</html>

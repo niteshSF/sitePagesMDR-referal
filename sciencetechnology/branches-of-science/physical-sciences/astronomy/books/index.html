@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books Data Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .bg-full {
+        background-image: url("assets/background.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .font-epilogue {
+        font-family: "Epilogue", sans-serif;
+      }
+      .text-stroke {
+        -webkit-text-stroke: 1.2px black;
+      }
+    </style>
+  </head>
+
+  <body class="bg-full h-screen max-w-screen font-epilogue">
+    <!-- Navigation Bar -->
+    <nav class="flex justify-end p-2 pr-16 text-[#646464] bg-[#A6C4FF] gap-10 text-md md:text-1xl">
+      <div
+        class="flex gap-0 cursor-pointer items-center"
+        onclick="window.location.href = document.URL.split('/').slice(0, -3).join('/')"
+      >
+        <i data-lucide="house" class="text-white w-10 h-6"></i>
+        <p>Home</p>
+      </div>
+      <div class="flex gap-0 cursor-pointer items-center" onclick="history.back()">
+        <i data-lucide="arrow-big-left-dash" class="text-white w-10 h-7"></i>
+        <p>Back</p>
+      </div>
+    </nav>
+
+    <!-- Title + Search Section -->
+    <div>
+      <div class="relative h-[250px] w-full flex justify-center items-center pt-5">
+        <div class="relative flex justify-center items-center mt-0">
+          <img src="assets/center_title.png" alt="title" class="w-[220px] md:w-[380px] z-0" />
+           <div class="absolute z-10 flex flex-col items-center justify-center text-center space-y-0 mt-3">
+               <h1 class="text-white font-semibold text-lg md:text-3xl leading-snug drop-shadow-[2px_2px_0_black] ">
+                  List of Books <br/> on
+               </h1>
+               <h1 class="text-transparent  font-extrabold text-xl md:text-4xl bg-clip-text bg-gradient-to-r from-cyan-200 to-cyan-400 drop-shadow-[3px_3px_0_black]">
+                  Astronomy
+               </h1>
+           </div>
+        </div>
+       
+        <!-- Search bar with dynamic icon -->
+        <div class="absolute top-6 right-28">
+          <div class="relative">
+            <input
+              id="search-bar"
+              class="p-1 w-[310px] h-[40px] pr-10 border-none bg-[#FFEEEE] text-[#756E6E] rounded-lg"
+              placeholder="search..."
+              oninput="toggleSearchIcon()"
+            />
+
+            <!-- Search Icon (default) -->
+            <svg id="search-icon" xmlns="http://www.w3.org/2000/svg"
+              class="absolute right-2 top-2.5 w-5 h-5 text-[#888]"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-4.35-4.35M16.65 16.65A7 7 0 1116.65 2a7 7 0 010 14z" />
+            </svg>
+
+            <!-- Clear (X) Button (appears on input) -->
+            <button
+              id="clear-btn"
+              class="absolute right-2 top-0.5 text-[#888] text-3xl hidden"
+              onclick="clearSearch()"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+
+        <!-- Total Items -->
+        <div class="absolute bottom-4 right-36 text-center">
+          <h4 class="text-[#94E5FF] font-bold text-2xl">Total Manuscripts</h4>
+          <p
+            class="bg-[#776993] text-white font-bold ml-14 text-xl py-1 w-28 px-2 rounded-xl"
+            id="item-count"
+          >
+            0
+          </p>
+        </div>
+      </div>
+
+      <!-- Data Table Section -->
+      <div class="max-w-screen pr-10 pl-10 mx-auto mt-5">
+        <table class="w-full text-center border-separate" style="border-spacing: 0 8px">
+          <thead class="sticky top-0 bg-transparent z-10">
+            <tr class="text-[#96E6FF] bg-transparent">
+              <th class="py-2 text-center pl-8 text-xl">Sl.No</th>
+              <th class="py-2 text-right pl-20 text-xl">Name</th>
+              <th class="py-2 text-right pl-52 text-xl">Author</th>
+              <th class="py-2 text-right pr-36 text-xl">Document ID</th>
+            </tr>
+          </thead>
+        </table>
+
+        <!-- Scrollable Body -->
+        <div class="max-h-[547px] overflow-y-auto mt-0 rounded-md">
+          <table class="w-full text-center border-separate" style="border-spacing: 0 8px">
+            <tbody id="data-table-body">
+              <!-- Rows dynamically inserted -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+      let data = [];
+
+      async function fetchData() {
+        try {
+          const response = await fetch("assets/data.json");
+          data = await response.json();
+          displayData(data);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+
+      function displayData(displayedData) {
+        const tbody = document.getElementById("data-table-body");
+        tbody.innerHTML = "";
+        document.getElementById("item-count").textContent = displayedData.length;
+
+        if (displayedData.length === 0) {
+          const row = document.createElement("tr");
+          row.className = "bg-[#776993] opacity-100 cursor-default";
+          const cell = document.createElement("td");
+          cell.colSpan = 4;
+          cell.className = "py-3 font-normal text-white text-xl text-center rounded-lg";
+          cell.textContent = "No Result Found";
+          row.appendChild(cell);
+          tbody.appendChild(row);
+          return;
+        }
+
+        displayedData.forEach((item, index) => {
+          const row = document.createElement("tr");
+          row.className = "bg-[#776993] hover:bg-grey opacity-100 hover:opacity-70 cursor-pointer";
+
+          row.onclick = () => {
+            const baseUrl = document.URL.replace(/index\.html$/, "");
+            window.location.href = `${baseUrl}info/?id=${item.id}`;
+          };
+
+          row.innerHTML = `
+            <td class="py-3 font-normal text-lg text-white rounded-l-lg pl-16">${index + 1}</td>
+            <td class="py-3 font-normal text-white text-xl text-left pl-60">${item.document_name}</td>
+            <td class="py-3 font-normal text-white text-xl text-left pr-44">${item.author}</td>
+            <td class="py-3 font-normal text-white text-lg text-left pr-20 rounded-r-lg">${item.id}</td>
+          `;
+
+          tbody.appendChild(row);
+        });
+      }
+
+      function filterData() {
+        const input = document.getElementById("search-bar");
+        const clearBtn = document.getElementById("clear-btn");
+        const searchIcon = document.getElementById("search-icon");
+        const query = input.value.toLowerCase();
+
+        if (query.trim() !== "") {
+          clearBtn.classList.remove("hidden");
+          searchIcon.classList.add("hidden");
+        } else {
+          clearBtn.classList.add("hidden");
+          searchIcon.classList.remove("hidden");
+        }
+
+        const filteredData = data.filter(
+          (item) =>
+            item.document_name.toLowerCase().includes(query) ||
+            item.author.toLowerCase().includes(query) ||
+            item.id.toString().toLowerCase().includes(query)
+        );
+
+        displayData(filteredData);
+      }
+
+      function clearSearch() {
+        const input = document.getElementById("search-bar");
+        input.value = "";
+        document.getElementById("clear-btn").classList.add("hidden");
+        document.getElementById("search-icon").classList.remove("hidden");
+        displayData(data);
+        input.focus();
+      }
+
+      function toggleSearchIcon() {
+        filterData();
+      }
+
+      document.getElementById("search-bar").addEventListener("input", toggleSearchIcon);
+      fetchData();
+
+      // Clear search on back navigation
+      window.addEventListener("pageshow", function (event) {
+        if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+          document.getElementById("search-bar").value = "";
+          document.getElementById("clear-btn").classList.add("hidden");
+          document.getElementById("search-icon").classList.remove("hidden");
+          displayData(data);
+        }
+      });
+    </script>
+  </body>
+</html>

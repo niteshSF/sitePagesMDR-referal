@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Information</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .bg-full {
+        background-image: url("../assets/background.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .font-epilogue {
+        font-family: "Epilogue", sans-serif;
+      }
+
+    </style>
+
+  </head>
+  <body class="bg-full min-h-screen max-w-screen font-epilogue">
+    <nav
+      class="flex justify-end p-2 pr-14 text-[#646464] bg-[#A6C4FF] gap-10 text-md md:text-1xl"
+    >
+      <div
+  class="flex gap-0 cursor-pointer items-center"
+  onclick="window.location.href = document.URL.split('/').slice(0, -3).join('/') + '/index.html'"
+>
+  <i data-lucide="house" class="text-white w-10 h-6"></i>
+  <p>Home</p>
+</div>
+
+      <div
+        class="flex gap-1 cursor-pointer items-center"
+        onclick="history.back()"
+      >
+        <i data-lucide="arrow-big-left-dash" class="text-white w-10 h-7"></i>
+        <p>Back</p>
+      </div>
+    </nav>
+    <div class="bg-[#683936] p-3 mt-5">
+      <h1 id="title" class="font-bold text-3xl text-white pl-14">
+        <!-- Title -->
+      </h1>
+    </div>
+
+    <!-- ================================================== -->
+
+    <!-- Top 3-column, 1st row -->
+    <div
+      class="flex flex-row flex-wrap items-center px-10 py-6 gap-x-4 text-[#2F87C4]"
+    >
+      <!-- Box 1 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[210px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg">Document ID</h2>
+      </div>
+
+      <!-- Box 2 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[150px] h-[40px] flex items-center justify-center"
+      >
+        <p id="document_id" class="text-[#333] text-lg font-semibold"></p>
+      </div>
+
+      <!-- Box 3 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[250px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg">Name (in Vernacular)</h2>
+      </div>
+
+      <!-- Box 4 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[360px] h-[40px] flex items-center justify-center"
+      >
+        <p id="name_vernacular" class="text-[#333] text-lg font-semibold"></p>
+      </div>
+
+      <!-- Box 5 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[200px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg">Author Name</h2>
+      </div>
+
+      <!-- Box 6 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[350px] h-[40px] flex items-center justify-center"
+      >
+        <p id="author_name" class="text-[#333] text-lg font-semibold"></p>
+      </div>
+    </div>
+
+    <!-- Detail-column, 2nd row -->
+    <div class="px-10 pb-5 text-[#683936]">
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[130px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg font-bold">Details</h2>
+      </div>
+    </div>
+
+    <!-- 3rd row -->
+    <div class="flex flex-wrap gap-y-4 pb-4 text-[#2F87C4]">
+      <div class="flex px-10 gap-x-4">
+        <!-- Column 1 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[170px] h-[40px] flex items-center justify-center"
+        >
+          <p class="text-lg">Language</p>
+        </div>
+
+        <!-- Column 2 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[170px] h-[40px] flex items-center justify-center mr-[40px]"
+        >
+          <p id="lang" class="text-[#333] text-lg font-semibold"></p>
+        </div>
+      </div>
+
+      <div class="flex px-1 gap-x-4">
+        <!-- Column 3 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[170px] h-[40px] flex items-center justify-center"
+        >
+          <p class="text-lg">Script</p>
+        </div>
+
+        <!-- Column 4 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[230px] h-[40px] flex items-center justify-center"
+        >
+          <p id="script" class="text-[#333] text-lg font-semibold"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4th row -->
+    <div class="flex flex-wrap gap-y-4 pb-4 text-[#2F87C4]">
+      <div class="flex px-10 gap-x-4">
+        <!-- Column 1 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[170px] h-[40px] flex items-center justify-center"
+        >
+          <p class="text-lg">Type</p>
+        </div>
+
+        <!-- Column 2 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[170px] h-[40px] flex items-center justify-center mr-[40px]"
+        >
+          <p id="type" class="text-[#333] text-lg font-semibold"></p>
+        </div>
+      </div>
+
+      <div class="flex px-1 gap-x-4">
+        <!-- Column 3 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[170px] h-[40px] flex items-center justify-center"
+        >
+          <p class="text-lg">Subject</p>
+        </div>
+
+        <!-- Column 4 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[230px] h-[40px] flex items-center justify-center"
+        >
+          <p id="subject" class="text-[#333] text-lg font-semibold"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5th row -->
+    <div class="flex flex-wrap gap-y-4 pb-3 text-[#2F87C4]">
+      <div class="flex px-10 gap-x-4">
+        <!-- Column 1 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[190px] h-[40px] flex items-center justify-center"
+        >
+          <p class="text-lg">Specific Category</p>
+        </div>
+
+        <!-- Column 2 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[190px] h-[40px] flex items-center justify-center mr-[40px]"
+        >
+          <p
+            id="specific_category"
+            class="text-[#333] text-lg font-semibold"
+          ></p>
+        </div>
+      </div>
+
+      <div class="flex px-0 -ml-[36px] gap-x-4">
+        <!-- Column 3 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[190px] h-[40px] flex items-center justify-center"
+        >
+          <p class="text-lg">Source Catalogue</p>
+        </div>
+
+        <!-- Column 4 -->
+        <div
+          class="bg-white p-2 rounded-lg shadow-md w-[250px] h-[40px] flex items-center justify-center"
+        >
+          <p id="col7" class="text-[#333] text-lg font-semibold"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6th row -->
+    <div class="flex flex-wrap gap-x-6 px-10 py-4 text-[#2F87C4]">
+      <!-- Column 1 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[150px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg">Summary</h2>
+      </div>
+
+      <!-- Column 2 (Dynamic Data) -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[600px] h-[161px] flex items-start justify-start overflow-hidden"
+      >
+        <p
+          id="summary"
+          class="text-[#333] text-lg font-semibold overflow-auto w-full h-full p-1"
+        ></p>
+      </div>
+
+      <!-- Column 3 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[185px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg">Table of Content</h2>
+      </div>
+
+      <!-- Column 4 (Dynamic Data) -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[550px] h-[161px] flex items-start justify-start overflow-hidden"
+      >
+        <p
+          id="toc"
+          class="text-[#333] text-lg font-semibold overflow-auto w-full h-full p-1"
+        ></p>
+      </div>
+    </div>
+
+    <!-- 7th row -->
+    <div class="px-10 pb-1 text-[#683936]">
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[260px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg font-bold">Specific Contribution</h2>
+      </div>
+    </div>
+
+    <!-- 8th row -->
+    <div class="flex flex-wrap gap-x-6 px-10 py-4 text-[#2F87C4]">
+      <!-- Column 1 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[130px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg">To Subject</h2>
+      </div>
+
+      <!-- Column 2 (Dynamic Data) -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[310px] h-[100px] flex items-start justify-start overflow-hidden"
+      >
+        <p
+          id="summary"
+          class="text-[#333] text-lg font-semibold overflow-auto w-full h-full p-1"
+        ></p>
+      </div>
+
+      <!-- Column 3 -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[235px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg">Uniqueness of Work</h2>
+      </div>
+
+      <!-- Column 4 (Dynamic Data) -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[520px] h-[150px] flex items-start justify-start overflow-hidden"
+      >
+        <p
+          id="toc"
+          class="text-[#333] text-lg font-semibold overflow-auto w-full h-full p-1"
+        ></p>
+     </div>
+
+    <!-- 9th row -->
+    <div class="flex items-start gap-x-4 px-10 pb-1 text-[#683936]">
+      <!-- Heading -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[180px] h-[40px] flex items-center justify-center"
+      >
+        <h2 class="text-lg font-bold">Other Details</h2>
+      </div>
+
+      <!-- Scrollable Content -->
+      <div
+        class="bg-white p-2 rounded-lg shadow-md w-[500px] h-[130px] flex items-start justify-start overflow-hidden"
+      >
+        <p
+          id="other-details"
+          class="text-[#333] text-lg font-semibold overflow-auto w-full h-full p-1"
+        ></p>
+      </div>
+
+      <!-- <div class="h-[60px]">
+        <a
+        href="/manuscript-page.html"
+        class="bg-[#683936] hover:bg-[#4d2b27] text-white font-semibold px-4 py-2 rounded-2xl shadow-md transition"
+        >
+          View Manuscript
+        </a>
+      </div> -->
+
+    </div>
+
+    <!-- ================================================== -->
+
+  </body>
+  <script>
+    lucide.createIcons();
+
+    const params = new URLSearchParams(window.location.search);
+
+    let data = [];
+
+    // Function to fetch and display the data
+    async function fetchData() {
+      try {
+        const response = await fetch("../assets/data.json");
+        data = await response.json();
+        displayData();
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    // Function to display the filtered data
+    function displayData() {
+      const item = data.find((d) => d.id === parseInt(params.get("id")));
+      if (item) {
+        document.getElementById("title").textContent = item.document_name;
+        document.getElementById("document_id").textContent = item.id;
+        document.getElementById("name_vernacular").textContent = item.document_name;
+        document.getElementById("author_name").textContent = item.name_in_ver;
+        document.getElementById("lang").textContent = item.language;
+        document.getElementById("script").textContent = item.script;
+        document.getElementById("type").textContent = item.type;
+        document.getElementById("subject").textContent = item.subject;
+        document.getElementById("specific_category").textContent = item.specific_category;
+        document.getElementById("summary").textContent = item.summary;
+        document.getElementById("toc").textContent = item.toc;
+      }
+      else 
+      {
+        document.getElementById("title").textContent = "Not Found";
+        document.getElementById("document_id").textContent = "";
+        document.getElementById("name_vernacular").textContent = "";
+        document.getElementById("author_name").textContent = "";
+        document.getElementById("lang").textContent = "";
+        document.getElementById("script").textContent = "";
+        document.getElementById("type").textContent = "";
+        document.getElementById("subject").textContent = "";
+        document.getElementById("specific_category").textContent = "";
+        document.getElementById("summary").textContent = "";
+        document.getElementById("toc").textContent = "";
+      }
+    }
+
+    fetchData();
+  </script>
+</html>

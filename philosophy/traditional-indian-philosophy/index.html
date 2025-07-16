@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0; 
+        overflow: hidden;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+    }
+    .nav-bar {
+        height: 40px;
+        width: 100%;
+        background-color: #bb9760a2;
+        position: fixed;
+        top: 0px;
+        z-index: 100;
+    }
+    
+    .nav-buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -5px;
+        padding-right: 50px;
+    }
+
+    .nav-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 20px;
+    }
+    .nav-button:hover:before {
+        content:"hint: try login with user - guest@mailinator.com and password - guest";
+    }
+    .nav-button i {
+        color: white;
+    }
+
+    .nav-button span p {
+        color: white;
+        margin-left: 10px;
+    }
+
+    span {
+        color: rgb(139, 36, 1);
+    }
+    
+    .firstScreen {
+        background-image: url(./assets/backgroundImage.png);
+        background-size: cover; 
+        background-position: center;
+        height: 100vh; 
+        width: 100vw;
+        position: relative;
+    }
+
+    .TIPimage {
+        height: 386px;
+        width: 386px;
+        position: absolute;
+        top: 200px;
+        left: 60px;
+        z-index: 1;
+    }
+
+    .orangeLeaf, .greenLeaf {
+        height: auto;
+        width: auto;
+        position: absolute;
+    }
+
+    .orangeLeaf {
+        transform: rotate(30deg);
+        left: 220px;
+        top: -10px;
+    }
+
+    .greenLeaf {
+        top: 160px;
+        left: 230px;
+    }
+
+    .orthodoxSystems {
+        position: absolute;
+        top: 200px;
+        left: 430px;
+        color: white;
+    }
+
+    .HeterodoxSystems {
+        position: absolute;
+        top: 400px;
+        left: 440px;
+        color: white;
+    }
+
+    h3:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+    
+    a {
+        text-decoration: none; 
+        color: inherit; 
+    }
+
+    a:active, a:focus {
+        background-color: transparent; 
+        outline: none;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="nav-buttons">
+            <button onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')" aria-label="Home" class="nav-button">
+                <i data-lucide="house" class="icon"></i>
+                <span class="button-text"><p>Home</p></span>
+            </button>
+            <button onclick="window.open('http://127.0.0.1:8080/philosophy/')" aria-label="Login" class="nav-button">
+                    <i class="fa-solid fa-right-to-bracket"  style="color: black;font-size: large;"></i>
+                <span class="button-text"><p>Login (Manuscripts Digital Repository)</p></span>
+            </button>
+            <button onclick="history.back()" aria-label="Back" class="nav-button">
+                <i data-lucide="arrow-big-left-dash" class="icon"></i>
+                <span class="button-text"><p>Back</p></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="firstScreen">
+        <img class="TIPimage" src="./assets/TIP.png" alt="">
+        <img class="orangeLeaf" src="./assets/orangeLeaf.png" alt="">
+        <img class="greenLeaf" src="./assets/greenLeaf.png" alt="">
+        <a href="orthodox-systems/index.html" title="fetching data" id="orthodox" onmouseover="hoverOrthodox()">
+            <h3 class="orthodoxSystems"><span style="color:rgb(139, 36, 1)">आस्तिक दर्शनम्</span><br> Orthodox Systems</h3>
+        </a>
+        <a href="heterodox-systems/index.html" title="fetching data" id="heterodox" onmouseover="hoverHeterodox()">
+            <h3 class="HeterodoxSystems"><span style="color:rgb(139, 36, 1)">नास्तिक दर्शनम्</span><br> Heterodox Systems</h3>
+        </a>
+    </div>
+</body>
+<script>
+    lucide.createIcons()
+</script>
+<script src="../../serverUrl.js"></script>
+<script src="../../dashboard.js"></script>
+<script>updateButtonOnclickWithRegex(); // update the onclick URLs with the server IP and port</script>
+<script>
+    function hoverOrthodox() {
+      if (document.getElementById('orthodox').title == "fetching data") dashboard("philosophy", 
+      "/subs/philosophy?subs=Nyaya,Vaisesika,Nyaya and Vaisesika,Purva Mimamsa,Purva and Uttara Mimamsa,Sankhya and Yoga,Uttara Mimamsa",
+       "orthodox");
+    }
+    function hoverHeterodox() {
+      if (document.getElementById('heterodox').title == "fetching data") dashboard("philosophy",
+       "/subs/philosophy?subs=Jaina,Bauddha,Carvaka",
+        "heterodox");
+    }
+</script>
+</html>
+
+

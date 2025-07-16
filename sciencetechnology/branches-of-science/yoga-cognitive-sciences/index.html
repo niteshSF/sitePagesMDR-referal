@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Sciences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      .bg-full {
+        background-image: url("../assets/bg-new.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .circle-container {
+        position: relative;
+        width: 540px;
+        height: 530px;
+      }
+
+      .circle-image {
+        position: absolute;
+        width: 260px;
+        height: 250px;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s ease;
+      }
+
+      .circle-image:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+        cursor: pointer;
+      }
+
+      .bg-circle {
+        width: 650px;
+        height: 650px;
+      }
+
+      .bg {
+        width: 340px;
+      }
+    </style>
+  </head>
+  <body class="bg-full min-h-screen min-w-screen m-0 p-0">
+    <!-- Navigation -->
+    <nav
+      class="flex justify-end p-5 text-xl pr-16 text-white bg-[#7EFEFE] gap-10"
+    >
+      <div
+        class="flex gap-1 cursor-pointer items-center"
+        onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')"
+      >
+        <i data-lucide="home" class="text-[#41476A]"></i>
+        <p class="text-[#674C79]"><strong>Home</strong></p>
+      </div>
+      <div
+        class="flex gap-1 cursor-pointer items-center"
+        onclick="history.back()"
+      >
+        <i data-lucide="arrow-left-circle" class="text-[#41476A]"></i>
+        <p class="text-[#674C79]"><strong>Back</strong></p>
+      </div>
+    </nav>
+
+    <!-- Circles -->
+    <div
+      class="flex h-[calc(100vh-64px)] w-full justify-center items-center relative mt-3"
+    >
+      <img src="assets/striped_circle_six.png" class="absolute bg-circle" />
+      <img src="assets/center_circle.png" class="absolute bg" />
+
+      <!-- inside the center circle text -->
+         <div class="absolute w-[340px] h-[340px] flex items-center justify-center text-[#4B2E1D] font-bold text-[1.4vw] text-center pointer-events-none">
+           Yoga & <br> Cognitive <br> Sciences
+         </div>
+
+      <div class="circle-container">
+          <img
+          src="assets/yoga.png"
+          class="circle-image"
+          id="circleYoga"
+          title="fetching data"
+          onclick="window.location.href = constructURL('yoga')"
+          onmouseover="hoverYoga()"
+          />
+          <img
+          src="assets/cognitive_sciences.png"
+          class="circle-image"
+          id="circleCognitiveSciences"
+          title="fetching data"
+          onclick="window.location.href = constructURL('cognitive-sciences')"
+          onmouseover="hoverCognitiveSciences()"
+          />         
+         
+        
+      </div>
+    </div>
+
+    <!-- Positioning Script -->
+    <script>
+      function positionCircles() {
+        const container = document.querySelector(".circle-container");
+        const radius = container.offsetWidth / 2 - 10; // adjusted for larger images
+        const centerX = container.offsetWidth / 2;
+        const centerY = container.offsetHeight / 2;
+
+        const images = document.querySelectorAll(".circle-image");
+        const totalImages = images.length;
+        const angleStep = 360 / totalImages;
+
+        images.forEach((image, index) => {
+          const angle = angleStep * index * (Math.PI / 180);
+          const x = centerX + radius * Math.cos(angle);
+          const y = centerY + radius * Math.sin(angle);
+          image.style.left = `${x}px`;
+          image.style.top = `${y}px`;
+        });
+      }
+
+      window.onload = positionCircles;
+      window.onresize = positionCircles;
+    </script>
+
+    <!-- Icon & Dashboard Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="../../../serverUrl.js"></script>
+    <script>
+      function constructURL(subfolder) {
+        const basePath =
+          document.location.protocol +
+          "//" +
+          document.location.host +
+          document.location.pathname;
+        return basePath.replace(/\/[^\/]*$/, "/") + subfolder + "/index.html";
+      }
+
+      function dashboard(jsonKey, prefix, circle) {
+        dashboardCounts(jsonKey, prefix)
+          .then((value) => {
+            const elemen = document.getElementById(circle);
+            let s = JSON.stringify(value).slice(1, -1);
+            elemen.setAttribute("title", s.replace(/"/g, " "));
+          })
+          .catch((error) => {
+            console.error("Error in one of the promises:", error);
+          });
+      }
+
+      function dashboardCounts(jsonKey, prefix) {
+        return fetch(serverUrlPort() + prefix)
+          .then((res) => res.json())
+          .then((json) => json[jsonKey])
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            return null;
+          });
+      }
+
+      function hoverYoga() {
+        if (
+          document.getElementById("circleYoga").title === "fetching data"
+        )
+          dashboard("Yoga", "/sub/yoga", "circleYoga");
+      }
+
+      function hoverCognitiveSciences() {
+        if (document.getElementById("circleCognitiveSciences").title === "fetching data")
+          dashboard("CognitiveSciences", "/sub/cognitivesciences", "circleCognitiveSciences");
+      }      
+
+    </script>
+  </body>
+</html>
