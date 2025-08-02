@@ -65,26 +65,36 @@
   </head>
 
   <body class="bg-full h-screen w-screen overflow-hidden m-0 p-0">
+
     <!-- Navigation Bar -->
-    <nav class="flex justify-end p-2 pr-10 text-[#646464] bg-[#A6C4FF] gap-5 text-md md:text-1xl">
-      <div class="flex gap-0 cursor-pointer items-center"
+
+    <nav class="z-50 w-full flex justify-end items-center gap-1 px-10 py-3 bg-[#A6C4FF]">
+      
+      <!-- Home -->
+      <div
+        class="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-[#88AEEB] transition cursor-pointer"
         onclick="window.location.href = document.URL.split('/').slice(0, -3).join('/')">
-        <i data-lucide="house" class="text-white w-10 h-6"></i>
-        <p>Home</p>
+        <i data-lucide="home" class="text-white w-6 h-6"></i>
+        <span class="text-black font-medium">Home</span>
       </div>
 
-      <!-- ✅ Changed from localhost to Netcup server -->
-      <div class="flex gap-0 cursor-pointer items-center"
+      <!-- Login -->
+      <div
+        class="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-[#88AEEB] transition cursor-pointer"
         onclick="window.location.href = serverUrl() + '/sciencetechnology'"
         title="hint: try login with user - guest@mailinator.com and password - guest">
-        <i data-lucide="arrow-big-left-dash" class="text-white w-10 h-7"></i>
-        <p>Login (Manuscripts Digital Repository)</p>
+        <i data-lucide="log-in" class="text-white w-6 h-6"></i>
+        <span class="text-black font-medium text-sm md:text-base">Login (Manuscripts Digital Repository)</span>
       </div>
 
-      <div class="flex gap-0 cursor-pointer items-center" onclick="history.back()">
-        <i data-lucide="arrow-big-left-dash" class="text-white w-10 h-7"></i>
-        <p>Back</p>
+      <!-- Back -->
+      <div
+        class="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-[#88AEEB] transition cursor-pointer"
+        onclick="history.back()">
+        <i data-lucide="arrow-big-left-dash" class="text-white w-6 h-6"></i>
+        <span class="text-black font-medium">Back</span>
       </div>
+
     </nav>
 
     <!-- Main Content -->
@@ -96,18 +106,17 @@
       </div>
 
       <!-- Paragraph -->
-      <div class="flex flex-1 items-center justify-end px-4 sm:px-8 md:pr-16 lg:pr-28 xl:pr-1 -mt-16 md:-mt-24 lg:-mt-32 xl:-mt-44">
+      <div class="flex flex-1 items-center justify-end px-4 sm:px-8 md:pr-16 lg:pr-28 xl:pr-1 -mt-16 md:-mt-24 lg:-mt-32 xl:-mt-36">
         <div
-          class="text-white text-justify w-full max-w-[600px] sm:max-w-[640px] md:max-w-[700px] lg:max-w-[760px] xl:max-w-[850px]">
+          class="text-white text-justify w-full max-w-[600px] sm:max-w-[640px] md:max-w-[700px] lg:max-w-[760px] xl:max-w-[880px]">
           <p class="text-base md:text-lg lg:text-xl leading-relaxed">
-            <!-- (text unchanged) -->
             Cosmology (Brahmānda Vijñānam) and Astronomy (Jyotişam) in ancient Bharat were intricately linked, showcasing a unique fusion of scientific observation and spiritual insight. The sages perceived the cosmos as a vast interconnected system, reflected in Vedic texts like the Rgveda and Atharvaveda, which explore the universe's origins and cyclical nature. Ancient Bharatiya astronomers developed advanced mathematical techniques, as seen in texts like the Sürya Siddhānta and Aryabhatiya, demonstrating a sophisticated understanding of celestial phenomena, including the diurnal rotation of the Earth. Cosmological narratives, such as the concept of Mount Meru as the universe's centre, influenced sacred geometry and temple design, emphasizing the harmony between physical and spiritual realms. Instruments like the gnomon and observatories like Jantar Mantar advanced astronomical observations. The translations of Bharatiya texts into Arabic and Latin helped disseminate this knowledge, significantly impacting global astronomy and the renaissance. The holistic approach of ancient Bharatiya scholars offers profound insights into existence and the inter-connectedness of all things, reminding us of the civilization's remarkable wisdom and creativity.
           </p>
         </div>
       </div>
 
       <!-- Resource Buttons -->
-      <div class="absolute bottom-5 right-4 sm:right-10 md:right-16 lg:right-24 xl:right-1">
+      <div class="absolute bottom-8 right-4 sm:right-10 md:right-16 lg:right-24 xl:right-1">
         <div class="flex gap-8 flex-wrap justify-center md:justify-end text-white text-center">
           <!-- Manuscripts -->
           <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
