@@ -11,22 +11,26 @@
 <body>
     <nav class="nav-bar">
         <div style="display: flex; gap: 20px; position: absolute; right: 30px; align-items: center;">
-            <button 
-                onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')" 
+
+            <button
+                onclick="window.location.href = window.location.origin + '/philosophy/traditional-indian-philosophy/'" 
                 aria-label="Home"
                 style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
-                <i data-lucide="house" class="text-white" style="color: white;font-size: 20px; display: inline-flex; align-items: center;"></i>
-                <span style="display: inline-flex; align-items: center;color: white;">Home</span>
+                <i data-lucide="house" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <span style="display: inline-flex; align-items: center; color: white;">Home</span>
             </button>
-            <button 
+
+            <button
                 onclick="history.back()" 
                 aria-label="Back"
                 style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
-                <i data-lucide="arrow-big-left-dash" class="text-white" style="color: white;font-size: 20px; display: inline-flex; align-items: center;"></i>
-                <span style="display: inline-flex; align-items: center;color: white;">Back</span>
+                <i data-lucide="arrow-big-left-dash" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <span style="display: inline-flex; align-items: center; color: white;">Back</span>
             </button>
+
         </div>
     </nav>
+
     <div class="fifthPage">
         <img class="buddhism" src="./assets/Buddhism.png" alt="">
         <img class="orangeLeaf3" src="./assets/orangeLeaf3.png" alt="">
@@ -36,13 +40,37 @@
             <img class="orangeLeaf" src="./assets/orangeLeaf.png" alt="">
             <img class="greenLeaf6-2" src="./assets/greenLeaf6.png" alt="">
             <img class="greenLeaf2-2" src="./assets/greenLeaf2.png" alt="">
-            <a href=".Mahayana"><h3 class="Mahayana" ><span>महायानम् </span><br>Mahayana</h3></a>
-            <a href=".Hinalaya"><h3 class="Hinalaya" ><span>हिनयानम्</span><br>Hinayana</h3></a>
-            <a href=".Madhyamika" ><h3 class="Madhyamika"><span>माध्यमिक</span><br>Madhyamika</h3></a>
-            <a href=".Yogachara"><h3 class="Yogachara" ><span>योगाचार</span><br>Yogachara</h3></a>
-            <a href=".Sautrantika"><h3 class="Sautrantika" ><span>सौत्रान्तिक</span><br>Sautrantika</h3></a>
-            <a href=".Vaibhasika"><h3 class="Vaibhasika" ><span>वैभाषिक</span><br>Vaibhasika</h3></a>
+
+            <a href="./madhyamika/" ><h3 class="Madhyamika"><span style="color:rgb(139, 36, 1)">माध्यमिक</span><br>
+                <span class="englishText">Mādhyamika</span>
+            </h3></a>
+            <a href="./mahayana/"><h3 class="Mahayana" ><span style="color:rgb(139, 36, 1)">महायानम्</span><br>
+                <span class="englishText">Mahāyāna</span>
+            </h3></a>
+            <a href="./yogachara/"><h3 class="Yogachara" ><span style="color:rgb(139, 36, 1)">योगाचार</span><br>
+                <span class="englishText">Yogācāra</span>
+            </h3></a>
+            <a href="./sautrantika/"><h3 class="Sautrantika" ><span style="color:rgb(139, 36, 1)">सौत्रान्तिक</span><br>
+                <span class="englishText">Sautrāntika</span>
+            </h3></a>
+            <a href="./hinayana/"><h3 class="Hinalaya" ><span style="color:rgb(139, 36, 1)">हिनयानम्</span><br>
+                <span class="englishText">Hīnayāna</span>
+            </h3></a>
+            <a href="./vaibhasika/"><h3 class="Vaibhasika" ><span style="color:rgb(139, 36, 1)">वैभाषिक</span><br>
+                <span class="englishText">Vaibhāṣika</span>
+            </h3></a>
+
         </div>
+
+        <!-- New floating text on the right side -->
+            <div class="rightText">
+              <h2>Buddhism</h2>
+                <p>
+                   Bauddha Darśana, founded by Gautama Buddha (6th–5th century BCE), is one of the major heterodox systems of Indian philosophy. It rejects the authority of the Vedas and focuses instead on the path of awakening (bodhi) that frees one from suffering (duḥkha). The core teaching is encapsulated in the Four Noble Truths: the existence of suffering, its cause in craving and ignorance, the possibility of its cessation (nirvāṇa), and the Eightfold Path as the means to attain it. Central to Buddhist philosophy is the doctrine of anātman (non-self), which denies any permanent, unchanging soul, and the teaching of pratītya-samutpāda (dependent origination), which explains how phenomena arise interdependently.<br>
+                   Over time, Buddhism developed into various schools. The Theravāda tradition emphasizes monastic discipline and personal liberation through insight. The Mahāyāna tradition expands the ideal to the bodhisattva path, aspiring for enlightenment not just for oneself but for all beings. Later developments like Vajrayāna integrate ritual, mantra, and esoteric practices.<br>
+                   At its heart, Bauddha Darśana offers a philosophy that is ethical, psychological, and practical — aiming to end suffering by transforming the mind and realizing the impermanent, interdependent nature of existence.
+                </p>
+            </div>
     </div>
     <script>
         lucide.createIcons()

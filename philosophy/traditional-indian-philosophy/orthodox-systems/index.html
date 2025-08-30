@@ -8,17 +8,26 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        .nav-button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        padding: 5px 20px;
+    <style> 
+    .rightText {
+        position: absolute;
+        top: 200px;
+        right: 160px;
+        width: 700px;
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 15px;
+        border-radius: 20px;
+        text-align: justify;
+        z-index: 2;
+        font-size: 20px;
     }
-    .nav-button:hover:before {
-        content:"hint: try login with user - guest@mailinator.com and password - guest";
+
+    .rightText h2 {
+        margin: 0 0 10px 0;
+        text-align: center;
+        font-size: 22px;
+        color: #ffcc66;
     }
     </style>
 </head>
@@ -26,22 +35,19 @@
 <body>
     <nav class="nav-bar">
         <div style="display: flex; gap: 20px; position: absolute; right: 30px; align-items: center;">
-            <button 
-                onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')" 
+           <button 
+                onclick="window.location.href = window.location.origin + '/philosophy/traditional-indian-philosophy/'" 
                 aria-label="Home"
                 style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
-                <i data-lucide="house" class="text-white" style="color: white;font-size: 20px; display: inline-flex; align-items: center;"></i>
-                <span style="display: inline-flex; align-items: center;color: white;">Home</span>
+                <i data-lucide="house" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <span style="display: inline-flex; align-items: center; color: white;">Home</span>
             </button>
-            <button onclick="window.open('http://127.0.0.1:8080/philosophy/')" aria-label="Login" class="nav-button">
-                    <i class="fa-solid fa-right-to-bracket"  style="color: black;font-size: large;"></i>
-                <span class="button-text"><p>Login (Manuscripts Digital Repository)</p></span>
-            </button>
+
             <button 
                 onclick="history.back()" 
                 aria-label="Back"
                 style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
-                <i data-lucide="arrow-big-left-dash" class="text-white" style="color: white;font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <i data-lucide="arrow-big-left-dash" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
                 <span style="display: inline-flex; align-items: center;color: white;">Back</span>
             </button>
         </div>
@@ -54,24 +60,47 @@
         <img class="leaf greenLeaf4" src="./assets/greenLeaf4.png" alt="">
         <img class="leaf orangeLeaf5" src="./assets/orangeLeaf5.png" alt="">
         <img class="leaf greenLeaf6" src="./assets/greenLeaf4.png" alt="">
-        <a href="#" id="Nyaya" title="fetching data" onmouseover="hoverNyaya()">
-            <h3 class="Nyaya"><span>न्याय</span><br>Nyaya</h3>
+
+        <a href="./nyaya/" id="Nyaya" title="fetching data" onmouseover="hoverNyaya()">
+            <h3 class="Nyaya"><span style="color:rgb(139, 36, 1)">न्याय</span><br>
+                <span class="englishText">Nyāya</span> 
+            </h3>
         </a>
-        <a href="#" id="Vaisesika" title="fetching data" onmouseover="hoverVaisesika()">
-            <h3 class="Vaisesika"><span>वैशेषिक</span><br>Vaisesika</h3>
+        <a href="./vaisesika/" id="Vaisesika" title="fetching data" onmouseover="hoverVaisesika()">
+            <h3 class="Vaisesika"><span style="color:rgb(139, 36, 1)">वैशेषिक</span><br>
+                <span class="englishText">Vaiśeṣika</span>
+            </h3>
         </a>
-        <a href="#" id="Sankhya" title="fetching data" onmouseover="hoverSankhya()">
-            <h3 class="Sankya"><span>सांख्य</span><br>Sankya</h3>
+        <a href="./sankya/" id="Sankhya" title="fetching data" onmouseover="hoverSankhya()">
+            <h3 class="Sankya"><span style="color:rgb(139, 36, 1)">सांख्य</span><br>
+                <span class="englishText">Sankya</span>
+            </h3>
         </a>
-        <a href="#" id="Yoga" title="fetching data" onmouseover="hoverYoga()">
-            <h3 class="Yoga"><span>योग</span><br>Yoga</h3>
+        <a href="./yoga/" id="Yoga" title="fetching data" onmouseover="hoverYoga()">
+            <h3 class="Yoga"><span style="color:rgb(139, 36, 1)">योग</span><br>
+                <span class="englishText">Yoga</span>
+            </h3>
         </a>
-        <a href="#" id="PurvaMimamsa" title="fetching data" onmouseover="hoverPurvaMimamsa()">
-            <h3 class="PurvaMimamsa"><span>पूर्व मीमांसा</span><br>Purva<br>Mimamsa</h3>
+        <a href="./purva-mimamsa/" id="PurvaMimamsa" title="fetching data" onmouseover="hoverPurvaMimamsa()">
+            <h3 class="PurvaMimamsa"><span style="color:rgb(139, 36, 1)">पूर्व मीमांसा</span><br>
+                <span class="englishText">Pūrva<br>Mīmāṃsā</span>
+            </h3>
         </a>
         <a href="./uttara-mimamsa/" id="UttaraMimamsa" title="fetching data" onmouseover="hoverUttaraMimamsa()">
-            <h3 class="UttaraMimamsa"><span>उत्तर मीमांसा</span><br>Uttara<br>Mimamsa</h3>
+            <h3 class="UttaraMimamsa"><span style="color:rgb(139, 36, 1)">उत्तर मीमांसा</span><br>
+                <span class="englishText">Uttara<br>Mīmāṃsā</span>
+            </h3>
+
         </a>
+
+        <!-- New floating text on the right side -->
+        <div class="rightText">
+          <h2>Orthodox Systems</h2>
+           <p>
+              The orthodox (āstika) systems of Indian philosophy are six classical schools that accept the authority of the Vedas while offering diverse perspectives on reality, knowledge, and liberation. Nyāya emphasizes logic and epistemology; Vaiśeṣika analyzes the categories of existence through an atomistic view; Sāṅkhya presents a dualism of puruṣa (consciousness) and prakṛti (matter); Yoga, closely allied with Sāṅkhya, provides a practical path of discipline and meditation for liberation; Pūrva Mīmāṃsā upholds Vedic ritual and dharma as the means to harmony; and Vedānta (Uttara Mīmāṃsā) explores the nature of Brahman, the self, and ultimate reality, with schools like Advaita, Viśiṣṭādvaita, and Dvaita offering varied interpretations. Together, they form the core of the āstika tradition, balancing reason, ritual, and spirituality.
+           </p>
+        </div>
+
     </div>
     <script>
         lucide.createIcons()
@@ -113,109 +142,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Page</title>
-    <link rel="stylesheet" href="./01.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body>
-    <nav class="nav-bar">
-        <div class="icons">
-            <i class="fa-light fa-house"></i><span>Home</span>
-            <i class="fa-thin fa-backward"></i><span>Back</span>
-        </div>
-    </nav>
-    <div class="second-page">
-        <img class="OSimage" src="./assets/OSimage.png" alt="">
-        <img class="orangeLeaf1" src="./assets/orangeLeaf.png" alt="">
-        <img class="greenLeaf2" src="./assets/greenLeaf2.png" alt="">
-        <img class="orangeLeaf3" src="./assets/orangeLeaf3.png" alt="">
-        <img class="greenLeaf4" src="./assets/greenLeaf4.png" alt="">
-        <img class="orangeLeaf5" src="./assets/orangeLeaf5.png" alt="">
-        <img class="greenLeaf6" src="./assets/greenLeaf4.png" alt="">
-        <a href="#">
-            <h3 class="Nyaya"><span>न्याय</span><br>Nyaya</h3>
-        </a>
-        <a href="#">
-            <h3 class="Vaisesika"><span>वैशेषिक</span><br>Vaisesika</h3>
-        </a>
-        <a href="#">
-            <h3 class="Sankya"><span>सांख्य</span><br>Sankya</h3>
-        </a>
-        <a href="#">
-            <h3 class="Yoga"><span>योग</span><br>Yoga</h3>
-        </a>
-        <a href="#">
-            <h3 class="PurvaMimamsa"><span>पूर्व मीमांसा</span><br>Purva<br>Mimamsa</h3>
-        </a>
-        <a href="thirdPage.html">
-            <h3 class="UttaraMimamsa"><span>उत्तर मीमांसा</span><br>Uttara<br>Mimamsa</h3>
-        </a>
-    </div>
-</body>
-
-</html> -->

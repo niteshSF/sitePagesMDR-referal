@@ -1,146 +1,157 @@
 /* Global Styles */
 :root {
-    --font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    --text-color: white;
-    --highlight-color: rgb(139, 36, 1);
-    --nav-bg-color: #bb9760a2;
+  --font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  --text-color: white;
+  --highlight-color: rgb(139, 36, 1);
+  --nav-bg-color: #97723a;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: var(--font-family);
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: var(--font-family);
+  text-align: center;
 }
 
 .nav-bar {
-    height: 40px;
-    width: 100%;
-    background-color: var(--nav-bg-color);
-    position: fixed;
-    top: 0;
-    z-index: 1;
+  height: 40px;
+  width: 100%;
+  background-color: var(--nav-bg-color);
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 .icons {
-    position: absolute;
-    right: 70px;
-    padding: 10px;
+  position: absolute;
+  right: 70px;
+  padding: 10px;
 }
 
 .second-page {
-    background-image: url(./assets/backgroundImage.png);
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+  background-image: url(./assets/backgroundImage.png);
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .OSimage {
-    height: 357px;
-    width: 357px;
-    position: absolute;
-    top: 150px;
-    left: 80px;
-    z-index: 1;
+  height: 357px;
+  width: 357px;
+  position: absolute;
+  top: 190px;
+  left: 80px;
+  z-index: 1;
 }
 
 .leaf {
-    position: absolute;
+  position: absolute;
 }
 
 .orangeLeaf1 {
-    height: 350px;
-    width: 350px;
-    left: 150px;
-    top: -20px;
-    transform: rotate(-25deg);
+  height: 350px;
+  width: 350px;
+  left: 150px;
+  top: 10px;
+  transform: rotate(-25deg);
 }
 
 .greenLeaf2 {
-    height: 150px;
-    top: 130px;
-    left: 240px;
-    transform: rotate(-35deg);
+  height: 150px;
+  top: 160px;
+  left: 240px;
+  transform: rotate(-35deg);
 }
 
 .orangeLeaf3 {
-    height: 350px;
-    top: 120px;
-    left: 250px;
+  height: 350px;
+  top: 150px;
+  left: 250px;
 }
 
 .greenLeaf4 {
-    height: 150px;
-    top: 320px;
-    left: 290px;
+  height: 150px;
+  top: 360px;
+  left: 290px;
 }
 
 .orangeLeaf5 {
-    height: 350px;
-    top: 310px;
-    left: 230px;
-    transform: rotate(10deg);
+  height: 350px;
+  top: 340px;
+  left: 230px;
+  transform: rotate(10deg);
 }
 
 .greenLeaf6 {
-    height: 150px;
-    top: 490px;
-    left: 140px;
-    transform: rotate(45deg);
+  height: 150px;
+  top: 520px;
+  left: 140px;
+  transform: rotate(45deg);
 }
 
-span {
-    color: var(--highlight-color);
-}
+/* span {
+  color: var(--highlight-color);
+} */
 
 h3 {
-    color: var(--text-color);
-    position: absolute;
-    transition: transform 0.3s;
+  color: var(--text-color);
+  position: absolute;
+  transition: transform 0.3s;
 }
 
 h3:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .Nyaya {
-    top: 70px;
-    left: 300px;
+  top: 105px;
+  left: 295px;
+  z-index: 10;
 }
 
 .Vaisesika {
-    top: 150px;
-    left: 380px;
+  top: 175px;
+  left: 375px;
+  z-index: 10;
 }
 
 .Sankya {
-    top: 250px;
-    left: 420px;
-    z-index: 1;
+  top: 275px;
+  left: 425px;
+  z-index: 10;
 }
 
 .Yoga {
-    top: 350px;
-    left: 430px;
+  top: 380px;
+  left: 435px;
+  z-index: 10;
 }
 
 .PurvaMimamsa {
-    top: 460px;
-    left: 370px;
+  top: 485px;
+  left: 365px;
+  z-index: 10;
 }
 
 .UttaraMimamsa {
-    top: 540px;
-    left: 260px;
+  top: 562px;
+  left: 252px;
+  z-index: 10;
 }
 
 a {
-    padding: 10px;
-    display: inline-block;
-    height: 100px;
-    width: 100px;
+  padding: 10px;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+
+.englishText {
+  text-shadow: 2px 3px 3px rgba(0, 0, 0, 1);
+  transition: text-shadow 0.3s ease;
 }

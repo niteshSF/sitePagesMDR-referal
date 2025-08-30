@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UttaraMimamsa</title>
     <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThirdPage</title>
-    <link rel="stylesheet" href="./thirdPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <nav class="nav-bar">
         <div style="display: flex; gap: 20px; position: absolute; right: 30px; align-items: center;">
-            <button 
-                onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')" 
+
+            <button
+                onclick="window.location.href = window.location.origin + '/philosophy/traditional-indian-philosophy/'" 
                 aria-label="Home"
-                style="color: white;background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
-                <i data-lucide="house" class="text-white" style="color: white;font-size: 20px; display: inline-flex; align-items: center;"></i>
-                <span style="display: inline-flex; align-items: center;color: white;">Home</span>
+                style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
+                <i data-lucide="house" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <span style="display: inline-flex; align-items: center; color: white;">Home</span>
             </button>
-            <button 
+
+            <button
                 onclick="history.back()" 
                 aria-label="Back"
                 style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
-                <i data-lucide="arrow-big-left-dash" class="text-white" style="color: white;font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <i data-lucide="arrow-big-left-dash" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
                 <span style="display: inline-flex; align-items: center;color: white;">Back</span>
             </button>
+
         </div>
     </nav>
     <div class="center-container">
@@ -51,17 +44,38 @@
             <img class="greenLeaf4" src="./assets/greenLeaf4.png" alt="">
             <img class="orangeLeaf5" src="./assets/orangeLeaf5.png" alt="">
             <img class="greenLeaf6" src="./assets/greenLeaf6.png" alt="">
-            <a href="#"><h3 class="Advaita"><span>अद्वैत</span><br>Advaita<br>(Shankaracharya)</h3></a>
-            <a href="#"><h3 class="Visistadvaita"><span>विशिष्टाद्वैत</span><br>Visistadvaita<br>(Ramanujacharya)</h3></a>
-            <a href="#"><h3 class="Dvaita"><span>द्वैत</span><br>Dvaita<br>(Madhvacharya)</h3></a>
-            <a href="#"><h3 class="Dvaitadvaita"><span>द्वैताद्वैत</span><br>Dvaitadvaita<br>(Nimbarkacharya)</h3></a>
-            <a href="#"><h3 class="Shuddhadaita"><span>शुद्धाद्वैत</span><br>Shuddhadaita<br>(Vallabhacharya)</h3></a>
-            <a href="#"><h3 class="Achintya"><span>अचिंत्य भेदाभेद</span><br>Achintya<br>Bhedabheda<br>(Chaitanya<br>Maha Prabhu)</h3></a>
+
+            <a href="./advaita/"><h3 class="Advaita"><span style="color:rgb(139, 36, 1); font-size: medium;">अद्वैत</span><br>
+                <span class="englishText">Advaita<br>(Shankaracharya)</span>
+            </h3></a>
+            <a href="./visistadvaita/"><h3 class="Visistadvaita"><span style="color:rgb(139, 36, 1); font-size: medium;">विशिष्टाद्वैत</span><br>
+                <span class="englishText">Viśiṣṭādvaita<br>(Ramanujacharya)</span>
+            </h3></a>
+            <a href="./dvaita/"><h3 class="Dvaita"><span style="color:rgb(139, 36, 1); font-size: medium;">द्वैत</span><br>
+                <span class="englishText">Dvaita<br>(Madhvacharya)</span>
+            </h3></a>
+            <a href="./dvaitadvaita/"><h3 class="Dvaitadvaita"><span style="color:rgb(139, 36, 1); font-size: medium;">द्वैताद्वैत</span><br>
+                <span class="englishText">Dvaitādvaita<br>(Nimbarkacharya)</span>
+            </h3></a>
+            <a href="./shuddhadaita/"><h3 class="Shuddhadaita"><span style="color:rgb(139, 36, 1); font-size: medium;">शुद्धाद्वैत</span><br>
+                <span class="englishText">Śuddhādvaita<br>(Vallabhacharya)</span>
+            </h3></a>
+            <a href="./achintya/"><h3 class="Achintya"><span style="color:rgb(139, 36, 1); ">अचिंत्य भेदाभेद</span><br>
+                <span class="englishText">Achintya<br>Bhedābheda<br>(Chaitanya<br>Mahāprabhu)</span>
+            </h3></a>
+
+            <!-- New floating text on the right side -->
+            <div class="rightText">
+              <h2>Uttara Mīmāṃsā</h2>
+                <p>
+                   Vedānta, also known as Uttara Mīmāṃsā, is the culminating system of Indian philosophy, drawing its authority from the Upaniṣads, the Brahma Sūtras of Bādarāyaṇa, and the Bhagavad Gītā. Unlike Pūrva Mīmāṃsā, which emphasizes ritual (karma), Vedānta highlights knowledge (jñāna) as the path to liberation (mokṣa), teaching that Brahman is the ultimate reality and the self (ātman) is either identical with or related to it. Over time, Vedānta developed into diverse schools: Advaita (non-dualism, Śaṅkara), Viśiṣṭādvaita (qualified non-dualism, Rāmānuja), Dvaita (dualism, Madhva), Dvaitādvaita (dualistic non-dualism, Nimbārka), Śuddhādvaita (pure non-dualism, Vallabha), and Acintya-bhedābheda (inconceivable oneness and difference, Caitanya). Together, these schools shaped the metaphysical, devotional, and spiritual foundations of later Hindu thought.
+                </p>
+            </div>
+
         </div>
     </div>
     <script>
         lucide.createIcons()
-      </script>
+        </script>
 </body>
 </html>
-

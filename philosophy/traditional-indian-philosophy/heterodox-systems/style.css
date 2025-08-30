@@ -1,146 +1,173 @@
 :root {
-    --font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    --text-color: white;
-    --highlight-color: rgb(139, 36, 1);
-    --nav-bg-color:#bb9760a2;
+  --font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  --text-color: white;
+  --highlight-color: rgb(139, 36, 1);
+  --nav-bg-color: #97723a;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: var(--font-family);
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: var(--font-family);
+  text-align: center;
 }
 
 .nav-bar {
-    height: 40px;
-    width: 100%;
-    background-color: var(--nav-bg-color);
-    position: fixed;
-    top: 0;
-    z-index: 11;
+  height: 40px;
+  width: 100%;
+  background-color: var(--nav-bg-color);
+  position: fixed;
+  top: 0;
+  z-index: 11;
 }
 
 .icons {
-    display: flex;
-    position: absolute;
-    right: 70px;
-    padding-left: 10px;
+  display: flex;
+  position: absolute;
+  right: 70px;
+  padding-left: 10px;
+}
+
+.rightText {
+  position: absolute;
+  top: 150px;
+  right: 80px;
+  width: 750px;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 20px;
+  text-align: justify;
+  z-index: 2;
+  font-size: 20px;
+}
+
+.rightText h2 {
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-size: 22px;
+  color: #ffcc66;
 }
 
 .fourthPage {
-    background-image: url(./assets/backgroundImage.png);
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  background-image: url(./assets/backgroundImage.png);
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .inner {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img {
-    position: absolute;
+  position: absolute;
 }
 
 .HSimage {
-    height: 400px;
-    width: 400px;
-    top: 110px;
-    left: 10px;
-    z-index: 4;
+  height: 400px;
+  width: 400px;
+  top: 110px;
+  left: 10px;
+  z-index: 4;
 }
 
 .god {
-    height: 100px;
-    width: 100px;
-    z-index: 5;
+  height: 100px;
+  width: 100px;
+  z-index: 5;
 }
 
 .god7 {
-    top: 115px;
-    left: 230px;
+  top: 115px;
+  left: 230px;
 }
 
 .god8 {
-    top: 260px;
-    left: 320px;
+  top: 260px;
+  left: 320px;
 }
 
 .god9 {
-    top: 400px;
-    left: 230px;
+  top: 400px;
+  left: 230px;
 }
 
 .leaf {
-    position: absolute;
+  position: absolute;
 }
 
 .orangeLeaf1 {
-    height: 450px;
-    width: 450px;
-    transform: rotate(25deg);
-    top: -80px;
-    left: 250px;
+  height: 450px;
+  width: 450px;
+  transform: rotate(25deg);
+  top: -80px;
+  left: 250px;
 }
 
 .greenLeaf2 {
-    height: 200px;
-    width: 390px;
-    top: 200px;
-    left: 310px;
-    z-index: 1;
+  height: 200px;
+  width: 390px;
+  top: 200px;
+  left: 310px;
+  z-index: 1;
 }
 
 .orangeLeaf3 {
-    height: 400px;
-    width: 460px;
-    top: 260px;
-    left: 250px;
+  height: 400px;
+  width: 460px;
+  top: 260px;
+  left: 250px;
 }
 
-span {
-    color:rgb(139, 36, 1);
+/* span {
+  color: rgb(139, 36, 1);
+} */
+
+.englishText {
+  text-shadow: 2px 3px 3px rgba(0, 0, 0, 1);
+  transition: text-shadow 0.3s ease;
 }
 
 h3 {
-    color: white;
+  color: white;
 }
 
 h3:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .Charvaka {
-    position: absolute;
-    top: 80px;
-    left: 435px;
-    transition: transform 0.3s ease;
+  position: absolute;
+  top: 80px;
+  left: 430px;
+  transition: transform 0.3s ease;
 }
 
 .Buddhism {
-    position: absolute;
-    top: 250px;
-    left: 480px;
-    z-index: 1;
-    transition: transform 0.3s ease;
+  position: absolute;
+  top: 255px;
+  left: 480px;
+  z-index: 1;
+  transition: transform 0.3s ease;
 }
 
 .Jainism {
-    position: absolute;
-    top: 430px;
-    left: 460px;
-    transition: transform 0.3s ease;
+  position: absolute;
+  top: 430px;
+  left: 460px;
+  transition: transform 0.3s ease;
 }

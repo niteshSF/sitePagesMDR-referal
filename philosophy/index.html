@@ -1,77 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philosophy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-    <style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Kaushan Script', cursive;
-    overflow: hidden;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Philosophy</title>
 
-.container {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('./assets/background.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 
-.enter-here {
-    position: absolute;
-    top: 300px;
-    left: 250px;
-    cursor: pointer;
-}
-
-.enter-here:hover {
-    transform: scale(1.1);
-}
-
-@media (min-width: 1200px) {
-    .enter-here {
-        top: 65vh;
-        left: 70vw;
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kaushan Script', cursive;
+      overflow: hidden;
     }
-}
 
-@media (max-width: 1199px) {
-    .enter-here {
-        top: 60vh;
-        left: 60vw;
+    .container {
+      height: 100vh;
+      width: 100vw;
+      background-image: url('./assets/background.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
     }
-}
 
-@media (max-width: 768px) {
-    .enter-here {
-        top: 70vh;
-        left: 50vw;
-        font-size: 2.5rem;
+    /* Heading image */
+    .heading-name {
+      position: absolute;
+      top: 10vh;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      max-width: 80%;
     }
-}
 
-@media (max-width: 480px) {
+    /* Top-left logos */
+    .logo-left1 {
+      position: absolute;
+      top: 3vh;
+      left: 2vw;
+      width: 120px;
+    }
+
+    .logo-left2 {
+      position: absolute;
+      top: 3vh;
+      left: 12vw;
+      width: 120px;
+    }
+
+    /* Top-right logo */
+    .logo-right {
+      position: absolute;
+      top: 3vh;
+      right: 2vw;
+      width: 120px;
+    }
+
+    /* Center logo */
+    .logo-center {
+      position: absolute;
+      top: 3vh;
+      left: 48%;
+      width: 200px;
+    }
+
+    /* Enter button */
     .enter-here {
-        top: 70vh;
+      position: absolute;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      z-index: 10;
+    }
+
+    .enter-here:hover {
+      transform: scale(1.1);
+    }
+
+    /* Bottom image */
+    .bottom-img {
+      position: absolute;
+      bottom: 0vh;
+      left: 32vw;
+      width: 200px;
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 1200px) {
+      .enter-here {
+        top: 56vh;
+        left: 58vw;
+        width: 250px;
+      }
+      .heading-name {
+        top: 28vh;
+        left: 63vw;
+        width: 900px;
+      }
+      .logo-left1 {
+        width: 150px;
+      }
+      .logo-left2 {
+        width: 130px;
+      }
+      .logo-right {
+        width: 150px;
+      }
+      .logo-center {
+        width: 80px;
+      }
+      .bottom-img {
+        width: 450px;  /* larger screens */
+      }
+    }
+
+    @media (max-width: 1199px) {
+      .enter-here {
+        top: 52vh;
         left: 45vw;
-        font-size: 2rem;
+        width: 280px;
+        height: 12vh;
+      }
+      .heading-name {
+        top: 30vh;
+        left: 67vw;
+        width: 640px;
+        height: 15vh;
+      }
+      .logo-left1 {
+        top: 4vh;
+        width: 160px;
+      }
+      .logo-left2 {
+        top: 4vh;
+        width: 130px;
+      }
+      .logo-right {
+        top: 3vh;
+        width: 150px;
+      }
+      .logo-center {
+        top: 4vh;
+        width: 75px;
+      }
+      .bottom-img {
+        left: 25vw;
+        bottom: 5vh;
+        width: 450px;
+      }
     }
-}
-    </style>
+
+    @media (max-width: 768px) {
+      .enter-here {
+        top: 55vh;
+        left: 48vw;
+        width: 210px;
+        height: 12vh;
+      }
+      .heading-name {
+        top: 35vh;
+        left: 65vw;
+        width: 450px;
+        height: 14vh;
+      }
+      .logo-left1 {
+        top: 4vh;
+        width: 110px;
+      }
+      .logo-left2 {
+        top: 4vh;
+        width: 96px;
+      }
+      .logo-right {
+        top: 3.5vh;
+        width: 110px;
+      }
+      .logo-center {
+        top: 4vh;
+        width: 60px;
+      }
+      .bottom-img {
+        left: 30vw;
+        width: 350px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .enter-here {
+        top: 57vh;
+        left: 43vw;
+        width: 140px;
+      }
+      .heading-name {
+        top: 40vh;
+        left: 64vw;
+        width: 240px;
+        height: 12vh;
+      }
+      .logo-left1 {
+        width: 80px;
+        top: 2vh;
+      }
+      .logo-left2 {
+        width: 70px;
+        left: 4vw;
+        top: 12vh;
+      }
+      .logo-right {
+        top: 2vh;
+        width: 80px;
+      }
+      .logo-center {
+        top: 2vh;
+        width: 35px;
+      }
+      .bottom-img {
+        left: 25vw;
+        width: 200px;
+      }
+    }
+
+  </style>
 </head>
 <body>
-    <a href="indexWithDashboard.html">Dashboard</a>
-    <div class="container">
-        <a href="./traditional-indian-philosophy/index.html"><img class="enter-here" src="./assets/enter-here.png" alt=""></a>
-    </div>
+  <div class="container">
+    <!-- Two logos on top-left -->
+     <a href="" target="_blank" rel="noopener noreferrer">
+    <img class="logo-left1" src="./assets/logo-MOE.png" alt="Left Logo 1" />
+    </a>
+    <a href="" target="_blank" rel="noopener noreferrer">
+    <img class="logo-left2" src="./assets/logo-ICPR.png" alt="Left Logo 2" />
+    </a>
+
+    <!-- Top-right logo -->
+    <a href="https://samskritifoundation.org/" target="_blank" rel="noopener noreferrer">
+      <img class="logo-right" src="./assets/logo-SF.png" alt="Right Logo" />
+    </a>
+
+    <!-- Center logo -->
+    <img class="logo-center" src="./assets/logo-center.png" alt="Center Logo" />
+
+    <!-- Heading name image -->
+    <img class="heading-name" src="./assets/name-logo.png" alt="Heading Name" />
+
+    <!-- Enter button -->
+    <a href="./dashboard/index.html">
+      <img class="enter-here" src="./assets/enter-here.png" alt="Enter Button" />
+    </a>
+
+    <!-- Bottom image -->
+    <img class="bottom-img" src="./assets/manuscripts.png" alt="Bottom Image" />
+  </div>
 </body>
 </html>

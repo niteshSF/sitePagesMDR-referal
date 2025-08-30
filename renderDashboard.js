@@ -62,7 +62,7 @@ function newDashboard(key, value) {
 
   divCardContent.appendChild(h4cardtitle);
   divCardContent.appendChild(h3cardcount);
-  
+
   divCard.appendChild(divCardContent);
   divColmd2.appendChild(divCard);
 
@@ -72,10 +72,10 @@ function newDashboard(key, value) {
 function renderDashboard(prefix, jsonKey) {
   // fetch(serverUrlPort() + prefix)
   fetch(serverUrl() + prefix)      
-  
+
   // Previously used serverUrlPort() to support local development (127.0.0.1:5000)
   // Now replaced with serverUrl() to always use the Netcup server in production
-   
+
     .then((response) => response.json())
     .then((json) => {
       const dataArray = json[jsonKey];

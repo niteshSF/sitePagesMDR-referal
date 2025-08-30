@@ -16,32 +16,29 @@
         align-items: center;
         padding: 5px 20px;
     }
-    .nav-button:hover:before {
-        content:"hint: try login with user - guest@mailinator.com and password - guest";
-    }
+
     </style>
 </head>
 <body>
     <nav class="nav-bar">
         <div style="display: flex; gap: 20px; position: absolute; right: 30px; align-items: center;">
-            <button 
-                onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')" 
+
+            <button
+                onclick="window.location.href = window.location.origin + '/philosophy/traditional-indian-philosophy/'" 
                 aria-label="Home"
                 style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
-                <i data-lucide="house" class="text-white" style="color: white;font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <i data-lucide="house" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
                 <span style="display: inline-flex; align-items: center;color: white;">Home</span>
             </button>
-            <button onclick="window.open('http://127.0.0.1:8080/philosophy/')" aria-label="Login" class="nav-button">
-                    <i class="fa-solid fa-right-to-bracket"  style="color: black;font-size: large;"></i>
-                <span class="button-text"><p>Login (Manuscripts Digital Repository)</p></span>
-            </button>
-            <button 
+
+            <button
                 onclick="history.back()" 
                 aria-label="Back"
                 style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
-                <i data-lucide="arrow-big-left-dash" class="text-white" style="color: white;font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <i data-lucide="arrow-big-left-dash" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
                 <span style="display: inline-flex; align-items: center;color: white;">Back</span>
             </button>
+
         </div>
     </nav>
     <div class="fourthPage">    
@@ -53,15 +50,31 @@
             <img class="leaf orangeLeaf1" src="./assets/orangeLeaf.png" alt="">
             <img class="leaf greenLeaf2" src="./assets/greenLeaf2.png" alt="">
             <img class="leaf orangeLeaf3" src="./assets/orangeLeaf3.png" alt="">
-            <a href="#" id="Carvaka" title="fetching data" onmouseover="hoverCarvaka()">
-                <h3 class="Charvaka"><span>चार्वाक दर्शनम्</span><br>Charvaka</h3>
+
+            <a href="./charvaka/" id="Carvaka" title="fetching data" onmouseover="hoverCarvaka()">
+                <h3 class="Charvaka"><span style="color:rgb(139, 36, 1)">चार्वाक दर्शनम्</span><br>
+                    <span class="englishText">Cārvāka Darśana</span>
+                </h3>
             </a>
-            <a href="./Buddhism/" id="Bauddha" title="fetching data" onmouseover="hoverBauddha()">
-                <h3 class="Buddhism"><span>बौद्ध दर्शनम्</span><br>Buddhism</h3>
+            <a href="./buddhism/" id="Buddhism" title="fetching data" onmouseover="hoverBuddhism()">
+                <h3 class="Buddhism"><span style="color:rgb(139, 36, 1)">बौद्ध दर्शनम्</span><br>
+                    <span class="englishText">Buddhism</span>
+                </h3>
             </a>
-            <a href="#" id="Jaina" title="fetching data" onmouseover="hoverJaina()">
-                <h3 class="Jainism"><span>जैन दर्शनम्</span><br>Jainism</h3>
+            <a href="./jainism/" id="Jainism" title="fetching data" onmouseover="hoverJainism()">
+                <h3 class="Jainism"><span style="color:rgb(139, 36, 1)">जैन दर्शनम्</span><br>
+                    <span class="englishText">Jainism</span>
+                </h3>
             </a>
+
+            <!-- New floating text on the right side -->
+            <div class="rightText">
+              <h2>Heterodox systems</h2>
+                <p>
+                   The Heterodox (nāstika) systems of Indian philosophy are those that do not accept the authority of the Vedas, though they offer profound insights into ethics, metaphysics, and liberation. Buddhism teaches the Four Noble Truths, the Middle Path, and the doctrine of momentariness and no-self; Jainism emphasizes ahiṃsā (non-violence), anekāntavāda (many-sided truth), and ascetic discipline as the way to mokṣa; while the Cārvāka (Lokāyata) school represents materialism, rejecting afterlife and karma, and advocating direct perception as the only valid means of knowledge. Despite their rejection of Vedic authority, these systems significantly shaped India’s intellectual, spiritual, and cultural landscape, often engaging in dialogue with the orthodox traditions.
+                </p>
+            </div>
+
         </div>
     </div>
     <script>
@@ -75,15 +88,15 @@ function hoverCarvaka() {
       "/subs/philosophy?subs=Carvaka",
        "Carvaka");
     }
-    function hoverBauddha() {
-        if (document.getElementById('Bauddha').title == "fetching data") dashboard("philosophy", 
-      "/subs/philosophy?subs=Bauddha",
-       "Bauddha");
+    function hoverBuddhism() {
+        if (document.getElementById('Buddhism').title == "fetching data") dashboard("philosophy", 
+      "/subs/philosophy?subs=Buddhism", 
+       "Buddhism");
     }
-    function hoverJaina() {
-        if (document.getElementById('Jaina').title == "fetching data") dashboard("philosophy", 
-      "/subs/philosophy?subs=Jaina",
-       "Jaina");
+    function hoverJainism() {
+        if (document.getElementById('Jainism').title == "fetching data") dashboard("philosophy", 
+      "/subs/philosophy?subs=Jainism",
+       "Jainism");
     }
 </script>
 </body>

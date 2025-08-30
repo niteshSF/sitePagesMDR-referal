@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yogācāra</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .nav-bar {
+        height: 40px;
+        width: 100%;
+        background-color: #97723a;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+    }
+
+    .firstScreen {
+        background-image: url(./assets/backgroundImage.png);
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 8vh;
+        box-sizing: border-box;
+    }
+
+    .center-heading {
+        text-align: center;
+        color: white;
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin: 0 auto 0px auto;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
+        padding-bottom: 5px;
+    }
+
+    .middle-content {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 5vw;
+    }
+
+    .left-content {
+        width: 45vw;
+        color: rgb(46, 13, 0);
+        font-weight: bold;
+        font-size: larger;
+        line-height: 1.4;
+        text-align: justify;
+    }
+
+    .resources {
+        display: flex;
+        gap: 2vw;
+        margin-left: 4vw;
+        margin-bottom: 2vh;
+    }
+
+    .resource-item-manuscripts,
+    .resource-item-books,
+    .resource-item-articles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    .resource-item-manuscripts img,
+    .resource-item-books img,
+    .resource-item-articles img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .resource-item-manuscripts:hover,
+    .resource-item-books:hover,
+    .resource-item-articles:hover {
+        transform: translateY(-5px) scale(1.05);
+    }
+
+    .badge-name {
+        margin-top: 5px;
+        background-color: rgb(46, 13, 0);
+        padding: 5px 10px;
+        border-radius: 8px;
+        width: 105px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+    }
+
+    .badge-count {
+        margin-top: 5px;
+        background-color: rgb(46, 13, 0);
+        padding: 5px 10px;
+        border-radius: 8px;
+        width: 50px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+    }
+</style>
+</head>
+<body>
+<nav class="nav-bar">
+    <div style="display: flex; gap: 20px; position: absolute; right: 30px; align-items: center;">
+        <button onclick="window.location.href = window.location.origin + '/philosophy/traditional-indian-philosophy/'" aria-label="Home" style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; display: flex; align-items: center; gap: 5px;">
+            <i data-lucide="house" class="text-white" style="font-size: 20px;"></i>
+            <span style="color: white;">Home</span>
+        </button>
+        <button onclick="history.back()" aria-label="Back" style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; display: flex; align-items: center; gap: 5px;">
+            <i data-lucide="arrow-big-left-dash" class="text-white" style="font-size: 20px;"></i>
+            <span style="color: white;">Back</span>
+        </button>
+    </div>
+</nav>
+
+<div class="firstScreen">
+    <div class="center-heading">योगाचार - Yogācāra <br></div>
+
+    <div class="middle-content">
+        <div class="left-content">
+            <p>
+                The Yogācāra, also known as the “School of Consciousness” or “Mind-Only” (Cittamātra), is another major philosophical tradition within Mahāyāna Buddhism, flourishing around the 4th–5th century CE through the works of Asaṅga and Vasubandhu. It teaches that all experiences are shaped by consciousness, and what we perceive as external reality is essentially a projection of the mind. Central to its thought is the doctrine of the ālaya-vijñāna (storehouse consciousness), a deep layer of mind where karmic seeds are stored and from which perceptions arise. Yogācāra emphasizes meditation, introspection, and mental discipline (yoga) as the path to purify these latent impressions and realize ultimate truth. By highlighting the constructive role of consciousness, it complements Mādhyamika’s philosophy of emptiness, offering a more psychological and experiential framework for understanding liberation.
+            </p>
+        </div>
+    </div>
+
+    <div class="resources">
+
+        <!-- Manuscripts -->
+        <div class="resource-item-manuscripts" onclick="window.location.href='manuscripts/index.html'">
+            <img src="./assets/manuscripts.png" alt="Manuscripts">
+            <div class="badge-name">Manuscripts</div>
+            <div id="yogacharaManuscripts" class="badge-count">...</div>
+        </div>
+
+        <!-- Books -->
+        <div class="resource-item-books" onclick="window.location.href='books/index.html'">
+            <img src="./assets/books.png" alt="Books">
+            <div class="badge-name">Books</div>
+            <div id="yogacharaBooks" class="badge-count">...</div>
+        </div>
+
+        <!-- Articles -->
+        <div class="resource-item-articles" onclick="window.location.href='articles/index.html'">
+            <img src="./assets/articles.png" alt="Articles">
+            <div class="badge-name">Articles</div>
+            <div id="yogacharaArticles" class="badge-count">...</div>
+        </div>
+    </div>
+</div>
+<script>
+    lucide.createIcons();
+
+    async function loadYogacharaCounts() {
+        try {
+            const response = await fetch("https://sciencetechnology.samskritifoundation.org/api/app/philosophy");
+            const data = await response.json();
+            const yogachara = data.Philosophy.Subjects.Yogachara;
+
+            document.getElementById("yogacharaManuscripts").textContent = yogachara.Manuscripts ?? "-";
+            document.getElementById("yogacharaBooks").textContent = yogachara.Books ?? "-";
+            document.getElementById("yogacharaArticles").textContent = yogachara.Articles ?? "-";
+        } catch (error) {
+            console.error("Error fetching Yogachara data:", error);
+        }
+    }
+
+    window.onload = loadYogacharaCounts;
+</script>
+</body>
+</html>

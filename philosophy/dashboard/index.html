@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../stylesheetFromsitePagesmdr.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+    <script src="construct_url.js"></script>
+
+    <title>Samskrthi Foundation - Dashboard Only</title>
+
+    <style>
+      .bg-home {
+        background-image: url("assets/dashboard-bg-1.png");
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+      }
+
+      footer {
+        width: 90%;
+        opacity: 1;
+        margin: auto;
+      }
+
+    </style>
+  </head>
+
+  <body
+    class="bg-home w-screen h-screen overflow-hidden flex flex-col justify-center items-center relative"
+  >
+    <!-- Logo at Top-Left -->
+    <div
+      class="absolute top-10 left-12 z-50 cursor-pointer"
+      onclick="window.location.href = '/philosophy/'"
+    >
+      <img
+        src="assets/name-logo.png"
+        alt="Home Logo"
+        class="w-[80px] md:w-[120px] lg:w-[520px] h-auto"
+      />
+    </div>
+
+    <!-- Top-Right Icons Row -->
+    <div class="absolute top-10 right-14 z-50 flex gap-10">
+
+      <!-- Icon 1 -->
+      <!-- <img
+        src="assets/contact.png"
+        alt="Page 1"
+        class="w-[50px] md:w-[120px] cursor-pointer"
+        onclick="window.location.href = 'contact/'"
+      /> -->
+
+      <!-- Icon 2 -->
+      <!-- <img
+        src="assets/about-the-project.png"
+        alt="Page 2"
+        class="w-[50px] md:w-[200px] cursor-pointer"
+        onclick="window.location.href = 'about/'"
+      /> -->
+
+      <!-- Icon 3 -->
+      <!-- <img
+        src="assets/credits.png"
+        alt="Page 3"
+        class="w-[50px] md:w-[120px] cursor-pointer"
+        onclick="window.location.href = 'credit/'"
+      /> -->
+    </div>
+
+    <!-- Dashboard Section -->
+    <footer class="flex justify-center items-center h-full">
+      <div class="main main-raised w-full">
+        <div class="container">
+          <div class="section">
+            <div
+              id="dashboard"
+              class="flex flex-nowrap justify-center items-center gap-6 p-4"
+            ></div>
+          </div>
+        </div> 
+      </div>
+    </footer>
+
+    <!-- Enter Button -->
+    <div class="absolute right-8 bottom-6 md:bottom-11 md:right-28 z-50">
+      <img
+        src="assets/enter-btn.png"
+        alt="Enter"
+        class="w-[120px] md:w-[250px] cursor-pointer hover:scale-105 transition-transform duration-300"
+        onclick="window.location.href = window.location.pathname.replace('dashboard', 'traditional-indian-philosophy')"
+      />
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="../../serverUrl.js"></script>
+    <script src="../renderDashboard.js"></script>
+    <script>
+      const prefix = "/app/philosophy";
+      const jsonKey = "Philosophy";
+      renderDashboard(prefix, jsonKey);
+    </script>
+  </body>
+</html>

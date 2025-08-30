@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+
     body {
         margin: 0;
         padding: 0; 
@@ -14,6 +15,7 @@
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         text-align: center;
     }
+
     .nav-bar {
         height: 40px;
         width: 100%;
@@ -22,38 +24,7 @@
         top: 0px;
         z-index: 100;
     }
-    
-    .nav-buttons {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: -5px;
-        padding-right: 50px;
-    }
 
-    .nav-button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        padding: 5px 20px;
-    }
-    .nav-button:hover:before {
-        content:"hint: try login with user - guest@mailinator.com and password - guest";
-    }
-    .nav-button i {
-        color: white;
-    }
-
-    .nav-button span p {
-        color: white;
-        margin-left: 10px;
-    }
-
-    span {
-        color: rgb(139, 36, 1);
-    }
-    
     .firstScreen {
         background-image: url(./assets/backgroundImage.png);
         background-size: cover; 
@@ -107,7 +78,7 @@
         transform: scale(1.1);
         transition: transform 0.3s ease;
     }
-    
+
     a {
         text-decoration: none; 
         color: inherit; 
@@ -117,23 +88,54 @@
         background-color: transparent; 
         outline: none;
     }
+
+    .englishText {
+        text-shadow: 2px 3px 3px rgba(0, 0, 0, 1); 
+        transition: text-shadow 0.3s ease;
+    }
+
+    .rightText {
+        position: absolute;
+        top: 200px;
+        right: 50px;
+        width: 700px;
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 15px;
+        border-radius: 20px;
+        text-align: justify;
+        z-index: 2;
+        font-size: 20px;
+    }
+
+    .rightText h2 {
+        margin: 0 0 10px 0;
+        text-align: center;
+        font-size: 22px;
+        color: #ffcc66;
+    }
+
     </style>
 </head>
 
 <body>
-    <nav class="nav-bar">
-        <div class="nav-buttons">
-            <button onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')" aria-label="Home" class="nav-button">
-                <i data-lucide="house" class="icon"></i>
-                <span class="button-text"><p>Home</p></span>
+    <nav class="nav-bar"> 
+        <div style="display: flex; gap: 20px; position: absolute; right: 30px; align-items: center;">
+
+            <button 
+                onclick="window.location.href = document.URL.split('/').slice(0, -2).join('/')" 
+                aria-label="Home"
+                style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
+                <i data-lucide="house" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <span style="display: inline-flex; align-items: center;color: white;">Home</span>
             </button>
-            <button onclick="window.open('http://127.0.0.1:8080/philosophy/')" aria-label="Login" class="nav-button">
-                    <i class="fa-solid fa-right-to-bracket"  style="color: black;font-size: large;"></i>
-                <span class="button-text"><p>Login (Manuscripts Digital Repository)</p></span>
-            </button>
-            <button onclick="history.back()" aria-label="Back" class="nav-button">
-                <i data-lucide="arrow-big-left-dash" class="icon"></i>
-                <span class="button-text"><p>Back</p></span>
+
+            <button 
+                onclick="history.back()" 
+                aria-label="Back"
+                style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px; transition: border-bottom 0.3s; display: flex; align-items: center; gap: 5px;">
+                <i data-lucide="arrow-big-left-dash" class="text-white" style="font-size: 20px; display: inline-flex; align-items: center;"></i>
+                <span style="display: inline-flex; align-items: center;color: white;">Back</span>
             </button>
         </div>
     </nav>
@@ -143,31 +145,46 @@
         <img class="orangeLeaf" src="./assets/orangeLeaf.png" alt="">
         <img class="greenLeaf" src="./assets/greenLeaf.png" alt="">
         <a href="orthodox-systems/index.html" title="fetching data" id="orthodox" onmouseover="hoverOrthodox()">
-            <h3 class="orthodoxSystems"><span style="color:rgb(139, 36, 1)">आस्तिक दर्शनम्</span><br> Orthodox Systems</h3>
+            <h3 class="orthodoxSystems"><span style="color:rgb(139, 36, 1)">आस्तिक दर्शनम्</span><br> 
+                <span class="englishText">Orthodox Systems</span>
+            </h3>
         </a>
         <a href="heterodox-systems/index.html" title="fetching data" id="heterodox" onmouseover="hoverHeterodox()">
-            <h3 class="HeterodoxSystems"><span style="color:rgb(139, 36, 1)">नास्तिक दर्शनम्</span><br> Heterodox Systems</h3>
+            <h3 class="HeterodoxSystems"><span style="color:rgb(139, 36, 1)">नास्तिक दर्शनम्</span><br>
+                <span class="englishText">Heterodox Systems</span>
+            </h3>
         </a>
+
+        <!-- New floating text on the right side -->
+        <div class="rightText">
+          <h2>Traditional Indian Philosophy</h2>
+           <p>
+              Indian philosophy is traditionally divided into two broad streams: Āstika (orthodox) and Nāstika (heterodox) systems. The distinction rests not on theism but on the acceptance of the Vedas as authoritative. The six classical darśanas — Nyāya, Vaiśeṣika, Sāṅkhya, Yoga, Pūrva Mīmāṃsā, and Uttara Mīmāṃsā (Vedānta) — are considered orthodox, as they base their thought on the Vedas, even while differing in interpretation. The heterodox systems — Buddhism, Jainism, and Cārvāka — reject Vedic authority, though they offer rich philosophical frameworks of their own. Together, these schools represent the diversity of inquiry in Bhāratīya thought, ranging from rigorous logic and metaphysics to ethics, liberation, and spiritual practice.
+           </p>
+        </div>
     </div>
 </body>
+
 <script>
     lucide.createIcons()
 </script>
+
 <script src="../../serverUrl.js"></script>
 <script src="../../dashboard.js"></script>
-<script>updateButtonOnclickWithRegex(); // update the onclick URLs with the server IP and port</script>
+<script>updateButtonOnclickWithRegex(); </script>
 <script>
+
     function hoverOrthodox() {
       if (document.getElementById('orthodox').title == "fetching data") dashboard("philosophy", 
-      "/subs/philosophy?subs=Nyaya,Vaisesika,Nyaya and Vaisesika,Purva Mimamsa,Purva and Uttara Mimamsa,Sankhya and Yoga,Uttara Mimamsa",
+      "/subs/philosophy?subs=Nyaya,Vaisesika,Sankhya,Yoga,Purva Mimamsa,Uttara Mimamsa",
        "orthodox");
     }
+
     function hoverHeterodox() {
       if (document.getElementById('heterodox').title == "fetching data") dashboard("philosophy",
-       "/subs/philosophy?subs=Jaina,Bauddha,Carvaka",
+       "/subs/philosophy?subs=Carvaka,Buddhism,Jainism",
         "heterodox");
     }
+
 </script>
 </html>
-
-
